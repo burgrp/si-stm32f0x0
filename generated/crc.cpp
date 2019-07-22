@@ -85,20 +85,6 @@ namespace target {
           raw = (raw & ~(0x1 << 0)) | ((value << 0) & (0x1 << 0));
         }
         /**
-          Gets Polynomial size
-          @return value in range 0..3
-        */
-        __attribute__((always_inline)) unsigned long getPOLYSIZE() volatile {
-          return (raw & (0x3 << 3)) >> 3;
-        }
-        /**
-          Sets Polynomial size
-          @param value in range 0..3
-        */
-        __attribute__((always_inline)) unsigned long setPOLYSIZE(unsigned long value) volatile {
-          raw = (raw & ~(0x3 << 3)) | ((value << 3) & (0x3 << 3));
-        }
-        /**
           Gets Reverse input data
           @return value in range 0..3
         */
