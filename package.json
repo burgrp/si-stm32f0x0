@@ -30,7 +30,8 @@
       "generated/tim_15.cpp",
       "generated/tim_16_17.cpp",
       "generated/flash.cpp",
-      "generated/dbgmcu.cpp"
+      "generated/dbgmcu.cpp",
+      "generated/systick.cpp"
     ],
     "symbols": {
       "_ZN6target3CRCE": "0x40023000",
@@ -63,7 +64,8 @@
       "_ZN6target5TIM16E": "0x40014400",
       "_ZN6target5TIM17E": "0x40014800",
       "_ZN6target5FLASHE": "0x40022000",
-      "_ZN6target6DBGMCUE": "0x40015800"
+      "_ZN6target6DBGMCUE": "0x40015800",
+      "_ZN6target7SYSTICKE": "0xE000E010"
     },
     "interrupts": {
       "0": "WWDG",
