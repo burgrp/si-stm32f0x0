@@ -383,14 +383,14 @@ namespace target {
           raw = (raw & ~(0x1 << 14)) | ((value << 14) & (0x1 << 14));
         }
         /**
-          Gets Reserved
+          Gets COM DMA request enable
           @return value in range 0..1
         */
         __attribute__((always_inline)) unsigned long getCOMDE() volatile {
           return (raw & (0x1 << 13)) >> 13;
         }
         /**
-          Sets Reserved
+          Sets COM DMA request enable
           @param value in range 0..1
         */
         __attribute__((always_inline)) unsigned long setCOMDE(unsigned long value) volatile {

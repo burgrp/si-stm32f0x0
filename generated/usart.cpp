@@ -1725,4 +1725,8 @@ namespace target {
   
   extern usart::Peripheral USART1;
   extern usart::Peripheral USART2;
+  extern usart::Peripheral USART3;
+  extern usart::Peripheral USART4;
+  extern usart::Peripheral USART6;
+  extern usart::Peripheral USART5;
 }

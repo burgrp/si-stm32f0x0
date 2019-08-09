@@ -813,6 +813,36 @@ namespace target {
           return raw;
         }
         /**
+          Gets USART 2 reset
+          @param index in range 2..5
+          @return value in range 0..1
+        */
+        __attribute__((always_inline)) unsigned long getUSART_RST(int index) volatile {
+          return (raw & (0x1 << (17 + 1 * (index - 2)))) >> (17 + 1 * (index - 2));
+        }
+        /**
+          Sets USART 2 reset
+          @param index in range 2..5
+          @param value in range 0..1
+        */
+        __attribute__((always_inline)) unsigned long setUSART_RST(int index, unsigned long value) volatile {
+          raw = (raw & ~(0x1 << (17 + 1 * (index - 2)))) | ((value << (17 + 1 * (index - 2))) & (0x1 << (17 + 1 * (index - 2))));
+        }
+        /**
+          Gets USART 2 reset
+          @return value in range 0..15
+        */
+        __attribute__((always_inline)) unsigned long getUSART_RST() volatile {
+          return (raw & (0xF << 17)) >> 17;
+        }
+        /**
+          Sets USART 2 reset
+          @param value in range 0..15
+        */
+        __attribute__((always_inline)) unsigned long setUSART_RST(unsigned long value) volatile {
+          raw = (raw & ~(0xF << 17)) | ((value << 17) & (0xF << 17));
+        }
+        /**
           Gets I2C1 reset
           @param index in range 1..2
           @return value in range 0..1
@@ -871,6 +901,20 @@ namespace target {
           raw = (raw & ~(0x1 << 4)) | ((value << 4) & (0x1 << 4));
         }
         /**
+          Gets TIM7 timer reset
+          @return value in range 0..1
+        */
+        __attribute__((always_inline)) unsigned long getTIM7RST() volatile {
+          return (raw & (0x1 << 5)) >> 5;
+        }
+        /**
+          Sets TIM7 timer reset
+          @param value in range 0..1
+        */
+        __attribute__((always_inline)) unsigned long setTIM7RST(unsigned long value) volatile {
+          raw = (raw & ~(0x1 << 5)) | ((value << 5) & (0x1 << 5));
+        }
+        /**
           Gets Timer 14 reset
           @return value in range 0..1
         */
@@ -913,18 +957,18 @@ namespace target {
           raw = (raw & ~(0x1 << 14)) | ((value << 14) & (0x1 << 14));
         }
         /**
-          Gets USART 2 reset
+          Gets USB interface reset
           @return value in range 0..1
         */
-        __attribute__((always_inline)) unsigned long getUSART2RST() volatile {
-          return (raw & (0x1 << 17)) >> 17;
+        __attribute__((always_inline)) unsigned long getUSBRST() volatile {
+          return (raw & (0x1 << 23)) >> 23;
         }
         /**
-          Sets USART 2 reset
+          Sets USB interface reset
           @param value in range 0..1
         */
-        __attribute__((always_inline)) unsigned long setUSART2RST(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 17)) | ((value << 17) & (0x1 << 17));
+        __attribute__((always_inline)) unsigned long setUSBRST(unsigned long value) volatile {
+          raw = (raw & ~(0x1 << 23)) | ((value << 23) & (0x1 << 23));
         }
         /**
           Gets Power interface reset
@@ -958,14 +1002,14 @@ namespace target {
           Gets DMA1 clock enable
           @return value in range 0..1
         */
-        __attribute__((always_inline)) unsigned long getDMAEN() volatile {
+        __attribute__((always_inline)) unsigned long getDMA1EN() volatile {
           return (raw & (0x1 << 0)) >> 0;
         }
         /**
           Sets DMA1 clock enable
           @param value in range 0..1
         */
-        __attribute__((always_inline)) unsigned long setDMAEN(unsigned long value) volatile {
+        __attribute__((always_inline)) unsigned long setDMA1EN(unsigned long value) volatile {
           raw = (raw & ~(0x1 << 0)) | ((value << 0) & (0x1 << 0));
         }
         /**
@@ -1051,20 +1095,6 @@ namespace target {
         */
         __attribute__((always_inline)) unsigned long setIOPCEN(unsigned long value) volatile {
           raw = (raw & ~(0x1 << 19)) | ((value << 19) & (0x1 << 19));
-        }
-        /**
-          Gets I/O port D clock enable
-          @return value in range 0..1
-        */
-        __attribute__((always_inline)) unsigned long getIOPDEN() volatile {
-          return (raw & (0x1 << 20)) >> 20;
-        }
-        /**
-          Sets I/O port D clock enable
-          @param value in range 0..1
-        */
-        __attribute__((always_inline)) unsigned long setIOPDEN(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 20)) | ((value << 20) & (0x1 << 20));
         }
         /**
           Gets I/O port F clock enable
@@ -1235,6 +1265,36 @@ namespace target {
           return raw;
         }
         /**
+          Gets USART 2 clock enable
+          @param index in range 2..5
+          @return value in range 0..1
+        */
+        __attribute__((always_inline)) unsigned long getUSART_EN(int index) volatile {
+          return (raw & (0x1 << (17 + 1 * (index - 2)))) >> (17 + 1 * (index - 2));
+        }
+        /**
+          Sets USART 2 clock enable
+          @param index in range 2..5
+          @param value in range 0..1
+        */
+        __attribute__((always_inline)) unsigned long setUSART_EN(int index, unsigned long value) volatile {
+          raw = (raw & ~(0x1 << (17 + 1 * (index - 2)))) | ((value << (17 + 1 * (index - 2))) & (0x1 << (17 + 1 * (index - 2))));
+        }
+        /**
+          Gets USART 2 clock enable
+          @return value in range 0..15
+        */
+        __attribute__((always_inline)) unsigned long getUSART_EN() volatile {
+          return (raw & (0xF << 17)) >> 17;
+        }
+        /**
+          Sets USART 2 clock enable
+          @param value in range 0..15
+        */
+        __attribute__((always_inline)) unsigned long setUSART_EN(unsigned long value) volatile {
+          raw = (raw & ~(0xF << 17)) | ((value << 17) & (0xF << 17));
+        }
+        /**
           Gets I2C 1 clock enable
           @param index in range 1..2
           @return value in range 0..1
@@ -1293,6 +1353,20 @@ namespace target {
           raw = (raw & ~(0x1 << 4)) | ((value << 4) & (0x1 << 4));
         }
         /**
+          Gets TIM7 timer clock enable
+          @return value in range 0..1
+        */
+        __attribute__((always_inline)) unsigned long getTIM7EN() volatile {
+          return (raw & (0x1 << 5)) >> 5;
+        }
+        /**
+          Sets TIM7 timer clock enable
+          @param value in range 0..1
+        */
+        __attribute__((always_inline)) unsigned long setTIM7EN(unsigned long value) volatile {
+          raw = (raw & ~(0x1 << 5)) | ((value << 5) & (0x1 << 5));
+        }
+        /**
           Gets Timer 14 clock enable
           @return value in range 0..1
         */
@@ -1335,18 +1409,18 @@ namespace target {
           raw = (raw & ~(0x1 << 14)) | ((value << 14) & (0x1 << 14));
         }
         /**
-          Gets USART 2 clock enable
+          Gets USB interface clock enable
           @return value in range 0..1
         */
-        __attribute__((always_inline)) unsigned long getUSART2EN() volatile {
-          return (raw & (0x1 << 17)) >> 17;
+        __attribute__((always_inline)) unsigned long getUSBRST() volatile {
+          return (raw & (0x1 << 23)) >> 23;
         }
         /**
-          Sets USART 2 clock enable
+          Sets USB interface clock enable
           @param value in range 0..1
         */
-        __attribute__((always_inline)) unsigned long setUSART2EN(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 17)) | ((value << 17) & (0x1 << 17));
+        __attribute__((always_inline)) unsigned long setUSBRST(unsigned long value) volatile {
+          raw = (raw & ~(0x1 << 23)) | ((value << 23) & (0x1 << 23));
         }
         /**
           Gets Power interface clock enable
@@ -1797,6 +1871,34 @@ namespace target {
         */
         __attribute__((always_inline)) unsigned long setI2C1SW(unsigned long value) volatile {
           raw = (raw & ~(0x1 << 4)) | ((value << 4) & (0x1 << 4));
+        }
+        /**
+          Gets HDMI CEC clock source selection
+          @return value in range 0..1
+        */
+        __attribute__((always_inline)) unsigned long getCECSW() volatile {
+          return (raw & (0x1 << 6)) >> 6;
+        }
+        /**
+          Sets HDMI CEC clock source selection
+          @param value in range 0..1
+        */
+        __attribute__((always_inline)) unsigned long setCECSW(unsigned long value) volatile {
+          raw = (raw & ~(0x1 << 6)) | ((value << 6) & (0x1 << 6));
+        }
+        /**
+          Gets USB clock source selection
+          @return value in range 0..1
+        */
+        __attribute__((always_inline)) unsigned long getUSBSW() volatile {
+          return (raw & (0x1 << 7)) >> 7;
+        }
+        /**
+          Sets USB clock source selection
+          @param value in range 0..1
+        */
+        __attribute__((always_inline)) unsigned long setUSBSW(unsigned long value) volatile {
+          raw = (raw & ~(0x1 << 7)) | ((value << 7) & (0x1 << 7));
         }
         /**
           Gets ADC clock source selection

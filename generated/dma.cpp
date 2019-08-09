@@ -2348,5 +2348,5 @@ namespace target {
     };
   }
   
-  extern dma::Peripheral DMA;
+  extern dma::Peripheral DMA1;
 }

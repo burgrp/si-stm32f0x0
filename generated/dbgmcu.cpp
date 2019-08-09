@@ -101,9 +101,9 @@ namespace target {
       };
       
       /**
-        APB Low Freeze Register
+        Debug MCU APB1 freeze register
       */
-      class APBLFZ {
+      class APB1_FZ {
         volatile unsigned long raw;
         public:
         __attribute__((always_inline)) void operator= (unsigned long value) volatile {
@@ -113,123 +113,109 @@ namespace target {
           return raw;
         }
         /**
-          Gets Debug Timer 2 stopped when Core is halted
+          Gets TIM3 counter stopped when core is halted
           @return value in range 0..1
         */
-        __attribute__((always_inline)) unsigned long getDBG_TIMER2_STOP() volatile {
-          return (raw & (0x1 << 0)) >> 0;
-        }
-        /**
-          Sets Debug Timer 2 stopped when Core is halted
-          @param value in range 0..1
-        */
-        __attribute__((always_inline)) unsigned long setDBG_TIMER2_STOP(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 0)) | ((value << 0) & (0x1 << 0));
-        }
-        /**
-          Gets Debug Timer 3 stopped when Core is halted
-          @return value in range 0..1
-        */
-        __attribute__((always_inline)) unsigned long getDBG_TIMER3_STOP() volatile {
+        __attribute__((always_inline)) unsigned long getDBG_TIM3_STOP() volatile {
           return (raw & (0x1 << 1)) >> 1;
         }
         /**
-          Sets Debug Timer 3 stopped when Core is halted
+          Sets TIM3 counter stopped when core is halted
           @param value in range 0..1
         */
-        __attribute__((always_inline)) unsigned long setDBG_TIMER3_STOP(unsigned long value) volatile {
+        __attribute__((always_inline)) unsigned long setDBG_TIM3_STOP(unsigned long value) volatile {
           raw = (raw & ~(0x1 << 1)) | ((value << 1) & (0x1 << 1));
         }
         /**
-          Gets Debug Timer 6 stopped when Core is halted
+          Gets TIM6 counter stopped when core is halted
           @return value in range 0..1
         */
-        __attribute__((always_inline)) unsigned long getDBG_TIMER6_STOP() volatile {
+        __attribute__((always_inline)) unsigned long getDBG_TIM6_STOP() volatile {
           return (raw & (0x1 << 4)) >> 4;
         }
         /**
-          Sets Debug Timer 6 stopped when Core is halted
+          Sets TIM6 counter stopped when core is halted
           @param value in range 0..1
         */
-        __attribute__((always_inline)) unsigned long setDBG_TIMER6_STOP(unsigned long value) volatile {
+        __attribute__((always_inline)) unsigned long setDBG_TIM6_STOP(unsigned long value) volatile {
           raw = (raw & ~(0x1 << 4)) | ((value << 4) & (0x1 << 4));
         }
         /**
-          Gets Debug Timer 14 stopped when Core is halted
+          Gets TIM7 counter stopped when core is halted
           @return value in range 0..1
         */
-        __attribute__((always_inline)) unsigned long getDBG_TIMER14_STOP() volatile {
+        __attribute__((always_inline)) unsigned long getDBG_TIM7_STOP() volatile {
+          return (raw & (0x1 << 5)) >> 5;
+        }
+        /**
+          Sets TIM7 counter stopped when core is halted
+          @param value in range 0..1
+        */
+        __attribute__((always_inline)) unsigned long setDBG_TIM7_STOP(unsigned long value) volatile {
+          raw = (raw & ~(0x1 << 5)) | ((value << 5) & (0x1 << 5));
+        }
+        /**
+          Gets TIM14 counter stopped when core is halted
+          @return value in range 0..1
+        */
+        __attribute__((always_inline)) unsigned long getDBG_TIM14_STOP() volatile {
           return (raw & (0x1 << 8)) >> 8;
         }
         /**
-          Sets Debug Timer 14 stopped when Core is halted
+          Sets TIM14 counter stopped when core is halted
           @param value in range 0..1
         */
-        __attribute__((always_inline)) unsigned long setDBG_TIMER14_STOP(unsigned long value) volatile {
+        __attribute__((always_inline)) unsigned long setDBG_TIM14_STOP(unsigned long value) volatile {
           raw = (raw & ~(0x1 << 8)) | ((value << 8) & (0x1 << 8));
         }
         /**
-          Gets Debug RTC stopped when Core is halted
-          @return value in range 0..1
-        */
-        __attribute__((always_inline)) unsigned long getDBG_RTC_STOP() volatile {
-          return (raw & (0x1 << 10)) >> 10;
-        }
-        /**
-          Sets Debug RTC stopped when Core is halted
-          @param value in range 0..1
-        */
-        __attribute__((always_inline)) unsigned long setDBG_RTC_STOP(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 10)) | ((value << 10) & (0x1 << 10));
-        }
-        /**
-          Gets Debug Window Wachdog stopped when Core is halted
+          Gets Debug window watchdog stopped when core is halted
           @return value in range 0..1
         */
         __attribute__((always_inline)) unsigned long getDBG_WWDG_STOP() volatile {
           return (raw & (0x1 << 11)) >> 11;
         }
         /**
-          Sets Debug Window Wachdog stopped when Core is halted
+          Sets Debug window watchdog stopped when core is halted
           @param value in range 0..1
         */
         __attribute__((always_inline)) unsigned long setDBG_WWDG_STOP(unsigned long value) volatile {
           raw = (raw & ~(0x1 << 11)) | ((value << 11) & (0x1 << 11));
         }
         /**
-          Gets Debug Independent Wachdog stopped when Core is halted
+          Gets Debug independent watchdog stopped when core is halted
           @return value in range 0..1
         */
         __attribute__((always_inline)) unsigned long getDBG_IWDG_STOP() volatile {
           return (raw & (0x1 << 12)) >> 12;
         }
         /**
-          Sets Debug Independent Wachdog stopped when Core is halted
+          Sets Debug independent watchdog stopped when core is halted
           @param value in range 0..1
         */
         __attribute__((always_inline)) unsigned long setDBG_IWDG_STOP(unsigned long value) volatile {
           raw = (raw & ~(0x1 << 12)) | ((value << 12) & (0x1 << 12));
         }
         /**
-          Gets SMBUS timeout mode stopped when Core is halted
+          Gets SMBUS timeout mode stopped when core is halted
           @return value in range 0..1
         */
-        __attribute__((always_inline)) unsigned long getI2C1_SMBUS_TIMEOUT() volatile {
+        __attribute__((always_inline)) unsigned long getDBG_I2C1_SMBUS_TIMEOUT() volatile {
           return (raw & (0x1 << 21)) >> 21;
         }
         /**
-          Sets SMBUS timeout mode stopped when Core is halted
+          Sets SMBUS timeout mode stopped when core is halted
           @param value in range 0..1
         */
-        __attribute__((always_inline)) unsigned long setI2C1_SMBUS_TIMEOUT(unsigned long value) volatile {
+        __attribute__((always_inline)) unsigned long setDBG_I2C1_SMBUS_TIMEOUT(unsigned long value) volatile {
           raw = (raw & ~(0x1 << 21)) | ((value << 21) & (0x1 << 21));
         }
       };
       
       /**
-        APB High Freeze Register
+        Debug MCU APB2 freeze register
       */
-      class APBHFZ {
+      class APB2_FZ {
         volatile unsigned long raw;
         public:
         __attribute__((always_inline)) void operator= (unsigned long value) volatile {
@@ -239,59 +225,59 @@ namespace target {
           return raw;
         }
         /**
-          Gets Debug Timer 1 stopped when Core is halted
+          Gets TIM1 counter stopped when core is halted
           @return value in range 0..1
         */
-        __attribute__((always_inline)) unsigned long getDBG_TIMER1_STOP() volatile {
+        __attribute__((always_inline)) unsigned long getDBG_TIM1_STOP() volatile {
           return (raw & (0x1 << 11)) >> 11;
         }
         /**
-          Sets Debug Timer 1 stopped when Core is halted
+          Sets TIM1 counter stopped when core is halted
           @param value in range 0..1
         */
-        __attribute__((always_inline)) unsigned long setDBG_TIMER1_STOP(unsigned long value) volatile {
+        __attribute__((always_inline)) unsigned long setDBG_TIM1_STOP(unsigned long value) volatile {
           raw = (raw & ~(0x1 << 11)) | ((value << 11) & (0x1 << 11));
         }
         /**
-          Gets Debug Timer 15 stopped when Core is halted
+          Gets TIM15 counter stopped when core is halted
           @return value in range 0..1
         */
-        __attribute__((always_inline)) unsigned long getDBG_TIMER15_STO() volatile {
+        __attribute__((always_inline)) unsigned long getDBG_TIM15_STOP() volatile {
           return (raw & (0x1 << 16)) >> 16;
         }
         /**
-          Sets Debug Timer 15 stopped when Core is halted
+          Sets TIM15 counter stopped when core is halted
           @param value in range 0..1
         */
-        __attribute__((always_inline)) unsigned long setDBG_TIMER15_STO(unsigned long value) volatile {
+        __attribute__((always_inline)) unsigned long setDBG_TIM15_STOP(unsigned long value) volatile {
           raw = (raw & ~(0x1 << 16)) | ((value << 16) & (0x1 << 16));
         }
         /**
-          Gets Debug Timer 16 stopped when Core is halted
+          Gets TIM16 counter stopped when core is halted
           @return value in range 0..1
         */
-        __attribute__((always_inline)) unsigned long getDBG_TIMER16_STO() volatile {
+        __attribute__((always_inline)) unsigned long getDBG_TIM16_STOP() volatile {
           return (raw & (0x1 << 17)) >> 17;
         }
         /**
-          Sets Debug Timer 16 stopped when Core is halted
+          Sets TIM16 counter stopped when core is halted
           @param value in range 0..1
         */
-        __attribute__((always_inline)) unsigned long setDBG_TIMER16_STO(unsigned long value) volatile {
+        __attribute__((always_inline)) unsigned long setDBG_TIM16_STOP(unsigned long value) volatile {
           raw = (raw & ~(0x1 << 17)) | ((value << 17) & (0x1 << 17));
         }
         /**
-          Gets Debug Timer 17 stopped when Core is halted
+          Gets TIM17 counter stopped when core is halted
           @return value in range 0..1
         */
-        __attribute__((always_inline)) unsigned long getDBG_TIMER17_STO() volatile {
+        __attribute__((always_inline)) unsigned long getDBG_TIM17_STOP() volatile {
           return (raw & (0x1 << 18)) >> 18;
         }
         /**
-          Sets Debug Timer 17 stopped when Core is halted
+          Sets TIM17 counter stopped when core is halted
           @param value in range 0..1
         */
-        __attribute__((always_inline)) unsigned long setDBG_TIMER17_STO(unsigned long value) volatile {
+        __attribute__((always_inline)) unsigned long setDBG_TIM17_STOP(unsigned long value) volatile {
           raw = (raw & ~(0x1 << 18)) | ((value << 18) & (0x1 << 18));
         }
       };
@@ -313,18 +299,18 @@ namespace target {
           volatile reg::CR CR;
         };
         struct {
-          volatile char _space_APBLFZ[8];
+          volatile char _space_APB1_FZ[8];
           /**
-            APB Low Freeze Register
+            Debug MCU APB1 freeze register
           */
-          volatile reg::APBLFZ APBLFZ;
+          volatile reg::APB1_FZ APB1_FZ;
         };
         struct {
-          volatile char _space_APBHFZ[12];
+          volatile char _space_APB2_FZ[12];
           /**
-            APB High Freeze Register
+            Debug MCU APB2 freeze register
           */
-          volatile reg::APBHFZ APBHFZ;
+          volatile reg::APB2_FZ APB2_FZ;
         };
       };
     };

@@ -929,14 +929,14 @@ namespace target {
           return raw;
         }
         /**
-          Gets Reserved
+          Gets Add one second
           @return value in range 0..1
         */
         __attribute__((always_inline)) unsigned long getADD1S() volatile {
           return (raw & (0x1 << 31)) >> 31;
         }
         /**
-          Sets Reserved
+          Sets Add one second
           @param value in range 0..1
         */
         __attribute__((always_inline)) unsigned long setADD1S(unsigned long value) volatile {
@@ -1223,14 +1223,14 @@ namespace target {
           raw = (raw & ~(0x1 << 14)) | ((value << 14) & (0x1 << 14));
         }
         /**
-          Gets Reserved
+          Gets Use a 16-second calibration cycle period
           @return value in range 0..1
         */
         __attribute__((always_inline)) unsigned long getCALW16() volatile {
           return (raw & (0x1 << 13)) >> 13;
         }
         /**
-          Sets Reserved
+          Sets Use a 16-second calibration cycle period
           @param value in range 0..1
         */
         __attribute__((always_inline)) unsigned long setCALW16(unsigned long value) volatile {
