@@ -684,77 +684,77 @@ namespace target {
           volatile reg::ISER ISER;
         };
         struct {
-          volatile char _space_ICER[128];
+          volatile char _space_ICER[0x80];
           /**
             Interrupt Clear Enable Register
           */
           volatile reg::ICER ICER;
         };
         struct {
-          volatile char _space_ISPR[256];
+          volatile char _space_ISPR[0x100];
           /**
             Interrupt Set-Pending Register
           */
           volatile reg::ISPR ISPR;
         };
         struct {
-          volatile char _space_ICPR[384];
+          volatile char _space_ICPR[0x180];
           /**
             Interrupt Clear-Pending Register
           */
           volatile reg::ICPR ICPR;
         };
         struct {
-          volatile char _space_IPR0[768];
+          volatile char _space_IPR0[0x300];
           /**
             Interrupt Priority Register 0
           */
           volatile reg::IPR0 IPR0;
         };
         struct {
-          volatile char _space_IPR1[772];
+          volatile char _space_IPR1[0x304];
           /**
             Interrupt Priority Register 1
           */
           volatile reg::IPR1 IPR1;
         };
         struct {
-          volatile char _space_IPR2[776];
+          volatile char _space_IPR2[0x308];
           /**
             Interrupt Priority Register 2
           */
           volatile reg::IPR2 IPR2;
         };
         struct {
-          volatile char _space_IPR3[780];
+          volatile char _space_IPR3[0x30c];
           /**
             Interrupt Priority Register 3
           */
           volatile reg::IPR3 IPR3;
         };
         struct {
-          volatile char _space_IPR4[784];
+          volatile char _space_IPR4[0x310];
           /**
             Interrupt Priority Register 4
           */
           volatile reg::IPR4 IPR4;
         };
         struct {
-          volatile char _space_IPR5[788];
+          volatile char _space_IPR5[0x314];
           /**
             Interrupt Priority Register 5
           */
           volatile reg::IPR5 IPR5;
         };
         struct {
-          volatile char _space_IPR6[792];
+          volatile char _space_IPR6[0x318];
           /**
             Interrupt Priority Register 6
           */
           volatile reg::IPR6 IPR6;
         };
         struct {
-          volatile char _space_IPR7[796];
+          volatile char _space_IPR7[0x31c];
           /**
             Interrupt Priority Register 7
           */

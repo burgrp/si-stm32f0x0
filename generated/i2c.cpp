@@ -1288,70 +1288,70 @@ namespace target {
           volatile reg::CR1 CR1;
         };
         struct {
-          volatile char _space_CR2[4];
+          volatile char _space_CR2[0x4];
           /**
             Control register 2
           */
           volatile reg::CR2 CR2;
         };
         struct {
-          volatile char _space_OAR1[8];
+          volatile char _space_OAR1[0x8];
           /**
             Own address register 1
           */
           volatile reg::OAR1 OAR1;
         };
         struct {
-          volatile char _space_OAR2[12];
+          volatile char _space_OAR2[0xc];
           /**
             Own address register 2
           */
           volatile reg::OAR2 OAR2;
         };
         struct {
-          volatile char _space_TIMINGR[16];
+          volatile char _space_TIMINGR[0x10];
           /**
             Timing register
           */
           volatile reg::TIMINGR TIMINGR;
         };
         struct {
-          volatile char _space_TIMEOUTR[20];
+          volatile char _space_TIMEOUTR[0x14];
           /**
             Status register 1
           */
           volatile reg::TIMEOUTR TIMEOUTR;
         };
         struct {
-          volatile char _space_ISR[24];
+          volatile char _space_ISR[0x18];
           /**
             Interrupt and Status register
           */
           volatile reg::ISR ISR;
         };
         struct {
-          volatile char _space_ICR[28];
+          volatile char _space_ICR[0x1c];
           /**
             Interrupt clear register
           */
           volatile reg::ICR ICR;
         };
         struct {
-          volatile char _space_PECR[32];
+          volatile char _space_PECR[0x20];
           /**
             PEC register
           */
           volatile reg::PECR PECR;
         };
         struct {
-          volatile char _space_RXDR[36];
+          volatile char _space_RXDR[0x24];
           /**
             Receive data register
           */
           volatile reg::RXDR RXDR;
         };
         struct {
-          volatile char _space_TXDR[40];
+          volatile char _space_TXDR[0x28];
           /**
             Transmit data register
           */

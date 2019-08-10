@@ -1886,147 +1886,147 @@ namespace target {
           volatile reg::CR1 CR1;
         };
         struct {
-          volatile char _space_CR2[4];
+          volatile char _space_CR2[0x4];
           /**
             control register 2
           */
           volatile reg::CR2 CR2;
         };
         struct {
-          volatile char _space_SMCR[8];
+          volatile char _space_SMCR[0x8];
           /**
             slave mode control register
           */
           volatile reg::SMCR SMCR;
         };
         struct {
-          volatile char _space_DIER[12];
+          volatile char _space_DIER[0xc];
           /**
             DMA/Interrupt enable register
           */
           volatile reg::DIER DIER;
         };
         struct {
-          volatile char _space_SR[16];
+          volatile char _space_SR[0x10];
           /**
             status register
           */
           volatile reg::SR SR;
         };
         struct {
-          volatile char _space_EGR[20];
+          volatile char _space_EGR[0x14];
           /**
             event generation register
           */
           volatile reg::EGR EGR;
         };
         struct {
-          volatile char _space_CCMR1_Output[24];
+          volatile char _space_CCMR1_Output[0x18];
           /**
             capture/compare mode register (output mode)
           */
           volatile reg::CCMR1_Output CCMR1_Output;
         };
         struct {
-          volatile char _space_CCMR1_Input[24];
+          volatile char _space_CCMR1_Input[0x18];
           /**
             capture/compare mode register 1 (input mode)
           */
           volatile reg::CCMR1_Input CCMR1_Input;
         };
         struct {
-          volatile char _space_CCMR2_Output[28];
+          volatile char _space_CCMR2_Output[0x1c];
           /**
             capture/compare mode register (output mode)
           */
           volatile reg::CCMR2_Output CCMR2_Output;
         };
         struct {
-          volatile char _space_CCMR2_Input[28];
+          volatile char _space_CCMR2_Input[0x1c];
           /**
             capture/compare mode register 2 (input mode)
           */
           volatile reg::CCMR2_Input CCMR2_Input;
         };
         struct {
-          volatile char _space_CCER[32];
+          volatile char _space_CCER[0x20];
           /**
             capture/compare enable register
           */
           volatile reg::CCER CCER;
         };
         struct {
-          volatile char _space_CNT[36];
+          volatile char _space_CNT[0x24];
           /**
             counter
           */
           volatile reg::CNT CNT;
         };
         struct {
-          volatile char _space_PSC[40];
+          volatile char _space_PSC[0x28];
           /**
             prescaler
           */
           volatile reg::PSC PSC;
         };
         struct {
-          volatile char _space_ARR[44];
+          volatile char _space_ARR[0x2c];
           /**
             auto-reload register
           */
           volatile reg::ARR ARR;
         };
         struct {
-          volatile char _space_RCR[48];
+          volatile char _space_RCR[0x30];
           /**
             repetition counter register
           */
           volatile reg::RCR RCR;
         };
         struct {
-          volatile char _space_CCR1[52];
+          volatile char _space_CCR1[0x34];
           /**
             capture/compare register 1
           */
           volatile reg::CCR1 CCR1;
         };
         struct {
-          volatile char _space_CCR2[56];
+          volatile char _space_CCR2[0x38];
           /**
             capture/compare register 2
           */
           volatile reg::CCR2 CCR2;
         };
         struct {
-          volatile char _space_CCR3[60];
+          volatile char _space_CCR3[0x3c];
           /**
             capture/compare register 3
           */
           volatile reg::CCR3 CCR3;
         };
         struct {
-          volatile char _space_CCR4[64];
+          volatile char _space_CCR4[0x40];
           /**
             capture/compare register 4
           */
           volatile reg::CCR4 CCR4;
         };
         struct {
-          volatile char _space_BDTR[68];
+          volatile char _space_BDTR[0x44];
           /**
             break and dead-time register
           */
           volatile reg::BDTR BDTR;
         };
         struct {
-          volatile char _space_DCR[72];
+          volatile char _space_DCR[0x48];
           /**
             DMA control register
           */
           volatile reg::DCR DCR;
         };
         struct {
-          volatile char _space_DMAR[76];
+          volatile char _space_DMAR[0x4c];
           /**
             DMA address for full transfer
           */

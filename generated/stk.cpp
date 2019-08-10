@@ -194,21 +194,21 @@ namespace target {
           volatile reg::CSR CSR;
         };
         struct {
-          volatile char _space_RVR[4];
+          volatile char _space_RVR[0x4];
           /**
             SysTick reload value register
           */
           volatile reg::RVR RVR;
         };
         struct {
-          volatile char _space_CVR[8];
+          volatile char _space_CVR[0x8];
           /**
             SysTick current value register
           */
           volatile reg::CVR CVR;
         };
         struct {
-          volatile char _space_CALIB[12];
+          volatile char _space_CALIB[0xc];
           /**
             SysTick calibration value register
           */

@@ -756,63 +756,63 @@ namespace target {
           volatile reg::ISR ISR;
         };
         struct {
-          volatile char _space_IER[4];
+          volatile char _space_IER[0x4];
           /**
             interrupt enable register
           */
           volatile reg::IER IER;
         };
         struct {
-          volatile char _space_CR[8];
+          volatile char _space_CR[0x8];
           /**
             control register
           */
           volatile reg::CR CR;
         };
         struct {
-          volatile char _space_CFGR1[12];
+          volatile char _space_CFGR1[0xc];
           /**
             configuration register 1
           */
           volatile reg::CFGR1 CFGR1;
         };
         struct {
-          volatile char _space_CFGR2[16];
+          volatile char _space_CFGR2[0x10];
           /**
             configuration register 2
           */
           volatile reg::CFGR2 CFGR2;
         };
         struct {
-          volatile char _space_SMPR[20];
+          volatile char _space_SMPR[0x14];
           /**
             sampling time register
           */
           volatile reg::SMPR SMPR;
         };
         struct {
-          volatile char _space_TR[32];
+          volatile char _space_TR[0x20];
           /**
             watchdog threshold register
           */
           volatile reg::TR TR;
         };
         struct {
-          volatile char _space_CHSELR[40];
+          volatile char _space_CHSELR[0x28];
           /**
             channel selection register
           */
           volatile reg::CHSELR CHSELR;
         };
         struct {
-          volatile char _space_DR[64];
+          volatile char _space_DR[0x40];
           /**
             data register
           */
           volatile reg::DR DR;
         };
         struct {
-          volatile char _space_CCR[776];
+          volatile char _space_CCR[0x308];
           /**
             common configuration register
           */

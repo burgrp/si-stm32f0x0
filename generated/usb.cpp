@@ -2000,98 +2000,98 @@ namespace target {
           volatile reg::EP0R EP0R;
         };
         struct {
-          volatile char _space_EP1R[4];
+          volatile char _space_EP1R[0x4];
           /**
             endpoint 1 register
           */
           volatile reg::EP1R EP1R;
         };
         struct {
-          volatile char _space_EP2R[8];
+          volatile char _space_EP2R[0x8];
           /**
             endpoint 2 register
           */
           volatile reg::EP2R EP2R;
         };
         struct {
-          volatile char _space_EP3R[12];
+          volatile char _space_EP3R[0xc];
           /**
             endpoint 3 register
           */
           volatile reg::EP3R EP3R;
         };
         struct {
-          volatile char _space_EP4R[16];
+          volatile char _space_EP4R[0x10];
           /**
             endpoint 4 register
           */
           volatile reg::EP4R EP4R;
         };
         struct {
-          volatile char _space_EP5R[20];
+          volatile char _space_EP5R[0x14];
           /**
             endpoint 5 register
           */
           volatile reg::EP5R EP5R;
         };
         struct {
-          volatile char _space_EP6R[24];
+          volatile char _space_EP6R[0x18];
           /**
             endpoint 6 register
           */
           volatile reg::EP6R EP6R;
         };
         struct {
-          volatile char _space_EP7R[28];
+          volatile char _space_EP7R[0x1c];
           /**
             endpoint 7 register
           */
           volatile reg::EP7R EP7R;
         };
         struct {
-          volatile char _space_CNTR[64];
+          volatile char _space_CNTR[0x40];
           /**
             control register
           */
           volatile reg::CNTR CNTR;
         };
         struct {
-          volatile char _space_ISTR[68];
+          volatile char _space_ISTR[0x44];
           /**
             interrupt status register
           */
           volatile reg::ISTR ISTR;
         };
         struct {
-          volatile char _space_FNR[72];
+          volatile char _space_FNR[0x48];
           /**
             frame number register
           */
           volatile reg::FNR FNR;
         };
         struct {
-          volatile char _space_DADDR[76];
+          volatile char _space_DADDR[0x4c];
           /**
             device address
           */
           volatile reg::DADDR DADDR;
         };
         struct {
-          volatile char _space_BTABLE[80];
+          volatile char _space_BTABLE[0x50];
           /**
             Buffer table address
           */
           volatile reg::BTABLE BTABLE;
         };
         struct {
-          volatile char _space_LPMCSR[84];
+          volatile char _space_LPMCSR[0x54];
           /**
             LPM control and status register
           */
           volatile reg::LPMCSR LPMCSR;
         };
         struct {
-          volatile char _space_BCDR[88];
+          volatile char _space_BCDR[0x58];
           /**
             Battery charging detector
           */

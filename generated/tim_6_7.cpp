@@ -306,49 +306,49 @@ namespace target {
           volatile reg::CR1 CR1;
         };
         struct {
-          volatile char _space_CR2[4];
+          volatile char _space_CR2[0x4];
           /**
             control register 2
           */
           volatile reg::CR2 CR2;
         };
         struct {
-          volatile char _space_DIER[12];
+          volatile char _space_DIER[0xc];
           /**
             DMA/Interrupt enable register
           */
           volatile reg::DIER DIER;
         };
         struct {
-          volatile char _space_SR[16];
+          volatile char _space_SR[0x10];
           /**
             status register
           */
           volatile reg::SR SR;
         };
         struct {
-          volatile char _space_EGR[20];
+          volatile char _space_EGR[0x14];
           /**
             event generation register
           */
           volatile reg::EGR EGR;
         };
         struct {
-          volatile char _space_CNT[36];
+          volatile char _space_CNT[0x24];
           /**
             counter
           */
           volatile reg::CNT CNT;
         };
         struct {
-          volatile char _space_PSC[40];
+          volatile char _space_PSC[0x28];
           /**
             prescaler
           */
           volatile reg::PSC PSC;
         };
         struct {
-          volatile char _space_ARR[44];
+          volatile char _space_ARR[0x2c];
           /**
             auto-reload register
           */

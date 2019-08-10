@@ -1660,133 +1660,133 @@ namespace target {
           volatile reg::TR TR;
         };
         struct {
-          volatile char _space_DR[4];
+          volatile char _space_DR[0x4];
           /**
             date register
           */
           volatile reg::DR DR;
         };
         struct {
-          volatile char _space_CR[8];
+          volatile char _space_CR[0x8];
           /**
             control register
           */
           volatile reg::CR CR;
         };
         struct {
-          volatile char _space_ISR[12];
+          volatile char _space_ISR[0xc];
           /**
             initialization and status register
           */
           volatile reg::ISR ISR;
         };
         struct {
-          volatile char _space_PRER[16];
+          volatile char _space_PRER[0x10];
           /**
             prescaler register
           */
           volatile reg::PRER PRER;
         };
         struct {
-          volatile char _space_ALRMAR[28];
+          volatile char _space_ALRMAR[0x1c];
           /**
             alarm A register
           */
           volatile reg::ALRMAR ALRMAR;
         };
         struct {
-          volatile char _space_WPR[36];
+          volatile char _space_WPR[0x24];
           /**
             write protection register
           */
           volatile reg::WPR WPR;
         };
         struct {
-          volatile char _space_SSR[40];
+          volatile char _space_SSR[0x28];
           /**
             sub second register
           */
           volatile reg::SSR SSR;
         };
         struct {
-          volatile char _space_SHIFTR[44];
+          volatile char _space_SHIFTR[0x2c];
           /**
             shift control register
           */
           volatile reg::SHIFTR SHIFTR;
         };
         struct {
-          volatile char _space_TSTR[48];
+          volatile char _space_TSTR[0x30];
           /**
             timestamp time register
           */
           volatile reg::TSTR TSTR;
         };
         struct {
-          volatile char _space_TSDR[52];
+          volatile char _space_TSDR[0x34];
           /**
             timestamp date register
           */
           volatile reg::TSDR TSDR;
         };
         struct {
-          volatile char _space_TSSSR[56];
+          volatile char _space_TSSSR[0x38];
           /**
             time-stamp sub second register
           */
           volatile reg::TSSSR TSSSR;
         };
         struct {
-          volatile char _space_CALR[60];
+          volatile char _space_CALR[0x3c];
           /**
             calibration register
           */
           volatile reg::CALR CALR;
         };
         struct {
-          volatile char _space_TAFCR[64];
+          volatile char _space_TAFCR[0x40];
           /**
             tamper and alternate function configuration register
           */
           volatile reg::TAFCR TAFCR;
         };
         struct {
-          volatile char _space_ALRMASSR[68];
+          volatile char _space_ALRMASSR[0x44];
           /**
             alarm A sub second register
           */
           volatile reg::ALRMASSR ALRMASSR;
         };
         struct {
-          volatile char _space_BKP0R[80];
+          volatile char _space_BKP0R[0x50];
           /**
             backup register
           */
           volatile reg::BKP0R BKP0R;
         };
         struct {
-          volatile char _space_BKP1R[84];
+          volatile char _space_BKP1R[0x54];
           /**
             backup register
           */
           volatile reg::BKP1R BKP1R;
         };
         struct {
-          volatile char _space_BKP2R[88];
+          volatile char _space_BKP2R[0x58];
           /**
             backup register
           */
           volatile reg::BKP2R BKP2R;
         };
         struct {
-          volatile char _space_BKP3R[92];
+          volatile char _space_BKP3R[0x5c];
           /**
             backup register
           */
           volatile reg::BKP3R BKP3R;
         };
         struct {
-          volatile char _space_BKP4R[96];
+          volatile char _space_BKP4R[0x60];
           /**
             backup register
           */

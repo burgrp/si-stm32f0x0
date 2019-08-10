@@ -866,56 +866,56 @@ namespace target {
           volatile reg::CR1 CR1;
         };
         struct {
-          volatile char _space_CR2[4];
+          volatile char _space_CR2[0x4];
           /**
             control register 2
           */
           volatile reg::CR2 CR2;
         };
         struct {
-          volatile char _space_SR[8];
+          volatile char _space_SR[0x8];
           /**
             status register
           */
           volatile reg::SR SR;
         };
         struct {
-          volatile char _space_DR[12];
+          volatile char _space_DR[0xc];
           /**
             data register
           */
           volatile reg::DR DR;
         };
         struct {
-          volatile char _space_CRCPR[16];
+          volatile char _space_CRCPR[0x10];
           /**
             CRC polynomial register
           */
           volatile reg::CRCPR CRCPR;
         };
         struct {
-          volatile char _space_RXCRCR[20];
+          volatile char _space_RXCRCR[0x14];
           /**
             RX CRC register
           */
           volatile reg::RXCRCR RXCRCR;
         };
         struct {
-          volatile char _space_TXCRCR[24];
+          volatile char _space_TXCRCR[0x18];
           /**
             TX CRC register
           */
           volatile reg::TXCRCR TXCRCR;
         };
         struct {
-          volatile char _space_I2SCFGR[28];
+          volatile char _space_I2SCFGR[0x1c];
           /**
             I2S configuration register
           */
           volatile reg::I2SCFGR I2SCFGR;
         };
         struct {
-          volatile char _space_I2SPR[32];
+          volatile char _space_I2SPR[0x20];
           /**
             I2S prescaler register
           */

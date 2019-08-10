@@ -460,42 +460,42 @@ namespace target {
           volatile reg::CPUID CPUID;
         };
         struct {
-          volatile char _space_ICSR[4];
+          volatile char _space_ICSR[0x4];
           /**
             Interrupt control and state register
           */
           volatile reg::ICSR ICSR;
         };
         struct {
-          volatile char _space_AIRCR[12];
+          volatile char _space_AIRCR[0xc];
           /**
             Application interrupt and reset control register
           */
           volatile reg::AIRCR AIRCR;
         };
         struct {
-          volatile char _space_SCR[16];
+          volatile char _space_SCR[0x10];
           /**
             System control register
           */
           volatile reg::SCR SCR;
         };
         struct {
-          volatile char _space_CCR[20];
+          volatile char _space_CCR[0x14];
           /**
             Configuration and control register
           */
           volatile reg::CCR CCR;
         };
         struct {
-          volatile char _space_SHPR2[28];
+          volatile char _space_SHPR2[0x1c];
           /**
             System handler priority registers
           */
           volatile reg::SHPR2 SHPR2;
         };
         struct {
-          volatile char _space_SHPR3[32];
+          volatile char _space_SHPR3[0x20];
           /**
             System handler priority registers
           */

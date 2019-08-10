@@ -276,35 +276,35 @@ namespace target {
           volatile reg::IMR IMR;
         };
         struct {
-          volatile char _space_EMR[4];
+          volatile char _space_EMR[0x4];
           /**
             Event mask register (EXTI_EMR)
           */
           volatile reg::EMR EMR;
         };
         struct {
-          volatile char _space_RTSR[8];
+          volatile char _space_RTSR[0x8];
           /**
             Rising Trigger selection register (EXTI_RTSR)
           */
           volatile reg::RTSR RTSR;
         };
         struct {
-          volatile char _space_FTSR[12];
+          volatile char _space_FTSR[0xc];
           /**
             Falling Trigger selection register (EXTI_FTSR)
           */
           volatile reg::FTSR FTSR;
         };
         struct {
-          volatile char _space_SWIER[16];
+          volatile char _space_SWIER[0x10];
           /**
             Software interrupt event register (EXTI_SWIER)
           */
           volatile reg::SWIER SWIER;
         };
         struct {
-          volatile char _space_PR[20];
+          volatile char _space_PR[0x14];
           /**
             Pending register (EXTI_PR)
           */

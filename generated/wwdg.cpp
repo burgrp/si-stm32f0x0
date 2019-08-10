@@ -138,14 +138,14 @@ namespace target {
           volatile reg::CR CR;
         };
         struct {
-          volatile char _space_CFR[4];
+          volatile char _space_CFR[0x4];
           /**
             Configuration register
           */
           volatile reg::CFR CFR;
         };
         struct {
-          volatile char _space_SR[8];
+          volatile char _space_SR[0x8];
           /**
             Status register
           */

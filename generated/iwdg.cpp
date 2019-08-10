@@ -180,28 +180,28 @@ namespace target {
           volatile reg::KR KR;
         };
         struct {
-          volatile char _space_PR[4];
+          volatile char _space_PR[0x4];
           /**
             Prescaler register
           */
           volatile reg::PR PR;
         };
         struct {
-          volatile char _space_RLR[8];
+          volatile char _space_RLR[0x8];
           /**
             Reload register
           */
           volatile reg::RLR RLR;
         };
         struct {
-          volatile char _space_SR[12];
+          volatile char _space_SR[0xc];
           /**
             Status register
           */
           volatile reg::SR SR;
         };
         struct {
-          volatile char _space_WINR[16];
+          volatile char _space_WINR[0x10];
           /**
             Window register
           */

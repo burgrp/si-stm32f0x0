@@ -1650,70 +1650,70 @@ namespace target {
           volatile reg::CR1 CR1;
         };
         struct {
-          volatile char _space_CR2[4];
+          volatile char _space_CR2[0x4];
           /**
             Control register 2
           */
           volatile reg::CR2 CR2;
         };
         struct {
-          volatile char _space_CR3[8];
+          volatile char _space_CR3[0x8];
           /**
             Control register 3
           */
           volatile reg::CR3 CR3;
         };
         struct {
-          volatile char _space_BRR[12];
+          volatile char _space_BRR[0xc];
           /**
             Baud rate register
           */
           volatile reg::BRR BRR;
         };
         struct {
-          volatile char _space_GTPR[16];
+          volatile char _space_GTPR[0x10];
           /**
             Guard time and prescaler register
           */
           volatile reg::GTPR GTPR;
         };
         struct {
-          volatile char _space_RTOR[20];
+          volatile char _space_RTOR[0x14];
           /**
             Receiver timeout register
           */
           volatile reg::RTOR RTOR;
         };
         struct {
-          volatile char _space_RQR[24];
+          volatile char _space_RQR[0x18];
           /**
             Request register
           */
           volatile reg::RQR RQR;
         };
         struct {
-          volatile char _space_ISR[28];
+          volatile char _space_ISR[0x1c];
           /**
             Interrupt & status register
           */
           volatile reg::ISR ISR;
         };
         struct {
-          volatile char _space_ICR[32];
+          volatile char _space_ICR[0x20];
           /**
             Interrupt flag clear register
           */
           volatile reg::ICR ICR;
         };
         struct {
-          volatile char _space_RDR[36];
+          volatile char _space_RDR[0x24];
           /**
             Receive data register
           */
           volatile reg::RDR RDR;
         };
         struct {
-          volatile char _space_TDR[40];
+          volatile char _space_TDR[0x28];
           /**
             Transmit data register
           */

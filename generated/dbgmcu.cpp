@@ -292,21 +292,21 @@ namespace target {
           volatile reg::IDCODE IDCODE;
         };
         struct {
-          volatile char _space_CR[4];
+          volatile char _space_CR[0x4];
           /**
             Debug MCU Configuration Register
           */
           volatile reg::CR CR;
         };
         struct {
-          volatile char _space_APB1_FZ[8];
+          volatile char _space_APB1_FZ[0x8];
           /**
             Debug MCU APB1 freeze register
           */
           volatile reg::APB1_FZ APB1_FZ;
         };
         struct {
-          volatile char _space_APB2_FZ[12];
+          volatile char _space_APB2_FZ[0xc];
           /**
             Debug MCU APB2 freeze register
           */

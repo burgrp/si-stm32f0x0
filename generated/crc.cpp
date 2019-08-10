@@ -166,21 +166,21 @@ namespace target {
           volatile reg::DR DR;
         };
         struct {
-          volatile char _space_IDR[4];
+          volatile char _space_IDR[0x4];
           /**
             Independent data register
           */
           volatile reg::IDR IDR;
         };
         struct {
-          volatile char _space_CR[8];
+          volatile char _space_CR[0x8];
           /**
             Control register
           */
           volatile reg::CR CR;
         };
         struct {
-          volatile char _space_INIT[12];
+          volatile char _space_INIT[0xc];
           /**
             Initial CRC value
           */

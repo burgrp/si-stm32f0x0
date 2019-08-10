@@ -538,35 +538,35 @@ namespace target {
           volatile reg::CFGR1 CFGR1;
         };
         struct {
-          volatile char _space_EXTICR1[8];
+          volatile char _space_EXTICR1[0x8];
           /**
             external interrupt configuration register 1
           */
           volatile reg::EXTICR1 EXTICR1;
         };
         struct {
-          volatile char _space_EXTICR2[12];
+          volatile char _space_EXTICR2[0xc];
           /**
             external interrupt configuration register 2
           */
           volatile reg::EXTICR2 EXTICR2;
         };
         struct {
-          volatile char _space_EXTICR3[16];
+          volatile char _space_EXTICR3[0x10];
           /**
             external interrupt configuration register 3
           */
           volatile reg::EXTICR3 EXTICR3;
         };
         struct {
-          volatile char _space_EXTICR4[20];
+          volatile char _space_EXTICR4[0x14];
           /**
             external interrupt configuration register 4
           */
           volatile reg::EXTICR4 EXTICR4;
         };
         struct {
-          volatile char _space_CFGR2[24];
+          volatile char _space_CFGR2[0x18];
           /**
             configuration register 2
           */

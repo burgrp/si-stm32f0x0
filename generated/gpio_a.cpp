@@ -540,70 +540,70 @@ namespace target {
           volatile reg::MODER MODER;
         };
         struct {
-          volatile char _space_OTYPER[4];
+          volatile char _space_OTYPER[0x4];
           /**
             GPIO port output type register
           */
           volatile reg::OTYPER OTYPER;
         };
         struct {
-          volatile char _space_OSPEEDR[8];
+          volatile char _space_OSPEEDR[0x8];
           /**
             GPIO port output speed register
           */
           volatile reg::OSPEEDR OSPEEDR;
         };
         struct {
-          volatile char _space_PUPDR[12];
+          volatile char _space_PUPDR[0xc];
           /**
             GPIO port pull-up/pull-down register
           */
           volatile reg::PUPDR PUPDR;
         };
         struct {
-          volatile char _space_IDR[16];
+          volatile char _space_IDR[0x10];
           /**
             GPIO port input data register
           */
           volatile reg::IDR IDR;
         };
         struct {
-          volatile char _space_ODR[20];
+          volatile char _space_ODR[0x14];
           /**
             GPIO port output data register
           */
           volatile reg::ODR ODR;
         };
         struct {
-          volatile char _space_BSRR[24];
+          volatile char _space_BSRR[0x18];
           /**
             GPIO port bit set/reset register
           */
           volatile reg::BSRR BSRR;
         };
         struct {
-          volatile char _space_LCKR[28];
+          volatile char _space_LCKR[0x1c];
           /**
             GPIO port configuration lock register
           */
           volatile reg::LCKR LCKR;
         };
         struct {
-          volatile char _space_AFRL[32];
+          volatile char _space_AFRL[0x20];
           /**
             GPIO alternate function low register
           */
           volatile reg::AFRL AFRL;
         };
         struct {
-          volatile char _space_AFRH[36];
+          volatile char _space_AFRH[0x24];
           /**
             GPIO alternate function high register
           */
           volatile reg::AFRH AFRH;
         };
         struct {
-          volatile char _space_BRR[40];
+          volatile char _space_BRR[0x28];
           /**
             Port bit reset register
           */

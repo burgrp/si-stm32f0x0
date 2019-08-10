@@ -168,7 +168,7 @@ namespace target {
           volatile reg::CR CR;
         };
         struct {
-          volatile char _space_CSR[4];
+          volatile char _space_CSR[0x4];
           /**
             power control/status register
           */

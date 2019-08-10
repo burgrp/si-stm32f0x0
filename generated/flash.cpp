@@ -574,49 +574,49 @@ namespace target {
           volatile reg::ACR ACR;
         };
         struct {
-          volatile char _space_KEYR[4];
+          volatile char _space_KEYR[0x4];
           /**
             Flash key register
           */
           volatile reg::KEYR KEYR;
         };
         struct {
-          volatile char _space_OPTKEYR[8];
+          volatile char _space_OPTKEYR[0x8];
           /**
             Flash option key register
           */
           volatile reg::OPTKEYR OPTKEYR;
         };
         struct {
-          volatile char _space_SR[12];
+          volatile char _space_SR[0xc];
           /**
             Flash status register
           */
           volatile reg::SR SR;
         };
         struct {
-          volatile char _space_CR[16];
+          volatile char _space_CR[0x10];
           /**
             Flash control register
           */
           volatile reg::CR CR;
         };
         struct {
-          volatile char _space_AR[20];
+          volatile char _space_AR[0x14];
           /**
             Flash address register
           */
           volatile reg::AR AR;
         };
         struct {
-          volatile char _space_OBR[28];
+          volatile char _space_OBR[0x1c];
           /**
             Option byte register
           */
           volatile reg::OBR OBR;
         };
         struct {
-          volatile char _space_WRPR[32];
+          volatile char _space_WRPR[0x20];
           /**
             Write protection register
           */

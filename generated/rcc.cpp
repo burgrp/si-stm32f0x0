@@ -2052,91 +2052,91 @@ namespace target {
           volatile reg::CR CR;
         };
         struct {
-          volatile char _space_CFGR[4];
+          volatile char _space_CFGR[0x4];
           /**
             Clock configuration register (RCC_CFGR)
           */
           volatile reg::CFGR CFGR;
         };
         struct {
-          volatile char _space_CIR[8];
+          volatile char _space_CIR[0x8];
           /**
             Clock interrupt register (RCC_CIR)
           */
           volatile reg::CIR CIR;
         };
         struct {
-          volatile char _space_APB2RSTR[12];
+          volatile char _space_APB2RSTR[0xc];
           /**
             APB2 peripheral reset register (RCC_APB2RSTR)
           */
           volatile reg::APB2RSTR APB2RSTR;
         };
         struct {
-          volatile char _space_APB1RSTR[16];
+          volatile char _space_APB1RSTR[0x10];
           /**
             APB1 peripheral reset register (RCC_APB1RSTR)
           */
           volatile reg::APB1RSTR APB1RSTR;
         };
         struct {
-          volatile char _space_AHBENR[20];
+          volatile char _space_AHBENR[0x14];
           /**
             AHB Peripheral Clock enable register (RCC_AHBENR)
           */
           volatile reg::AHBENR AHBENR;
         };
         struct {
-          volatile char _space_APB2ENR[24];
+          volatile char _space_APB2ENR[0x18];
           /**
             APB2 peripheral clock enable register (RCC_APB2ENR)
           */
           volatile reg::APB2ENR APB2ENR;
         };
         struct {
-          volatile char _space_APB1ENR[28];
+          volatile char _space_APB1ENR[0x1c];
           /**
             APB1 peripheral clock enable register (RCC_APB1ENR)
           */
           volatile reg::APB1ENR APB1ENR;
         };
         struct {
-          volatile char _space_BDCR[32];
+          volatile char _space_BDCR[0x20];
           /**
             Backup domain control register (RCC_BDCR)
           */
           volatile reg::BDCR BDCR;
         };
         struct {
-          volatile char _space_CSR[36];
+          volatile char _space_CSR[0x24];
           /**
             Control/status register (RCC_CSR)
           */
           volatile reg::CSR CSR;
         };
         struct {
-          volatile char _space_AHBRSTR[40];
+          volatile char _space_AHBRSTR[0x28];
           /**
             AHB peripheral reset register
           */
           volatile reg::AHBRSTR AHBRSTR;
         };
         struct {
-          volatile char _space_CFGR2[44];
+          volatile char _space_CFGR2[0x2c];
           /**
             Clock configuration register 2
           */
           volatile reg::CFGR2 CFGR2;
         };
         struct {
-          volatile char _space_CFGR3[48];
+          volatile char _space_CFGR3[0x30];
           /**
             Clock configuration register 3
           */
           volatile reg::CFGR3 CFGR3;
         };
         struct {
-          volatile char _space_CR2[52];
+          volatile char _space_CR2[0x34];
           /**
             Clock control register 2
           */

@@ -2142,203 +2142,203 @@ namespace target {
           volatile reg::ISR ISR;
         };
         struct {
-          volatile char _space_IFCR[4];
+          volatile char _space_IFCR[0x4];
           /**
             DMA interrupt flag clear register (DMA_IFCR)
           */
           volatile reg::IFCR IFCR;
         };
         struct {
-          volatile char _space_CCR1[8];
+          volatile char _space_CCR1[0x8];
           /**
             DMA channel configuration register (DMA_CCR)
           */
           volatile reg::CCR1 CCR1;
         };
         struct {
-          volatile char _space_CNDTR1[12];
+          volatile char _space_CNDTR1[0xc];
           /**
             DMA channel 1 number of data register
           */
           volatile reg::CNDTR1 CNDTR1;
         };
         struct {
-          volatile char _space_CPAR1[16];
+          volatile char _space_CPAR1[0x10];
           /**
             DMA channel 1 peripheral address register
           */
           volatile reg::CPAR1 CPAR1;
         };
         struct {
-          volatile char _space_CMAR1[20];
+          volatile char _space_CMAR1[0x14];
           /**
             DMA channel 1 memory address register
           */
           volatile reg::CMAR1 CMAR1;
         };
         struct {
-          volatile char _space_CCR2[28];
+          volatile char _space_CCR2[0x1c];
           /**
             DMA channel configuration register (DMA_CCR)
           */
           volatile reg::CCR2 CCR2;
         };
         struct {
-          volatile char _space_CNDTR2[32];
+          volatile char _space_CNDTR2[0x20];
           /**
             DMA channel 2 number of data register
           */
           volatile reg::CNDTR2 CNDTR2;
         };
         struct {
-          volatile char _space_CPAR2[36];
+          volatile char _space_CPAR2[0x24];
           /**
             DMA channel 2 peripheral address register
           */
           volatile reg::CPAR2 CPAR2;
         };
         struct {
-          volatile char _space_CMAR2[40];
+          volatile char _space_CMAR2[0x28];
           /**
             DMA channel 2 memory address register
           */
           volatile reg::CMAR2 CMAR2;
         };
         struct {
-          volatile char _space_CCR3[48];
+          volatile char _space_CCR3[0x30];
           /**
             DMA channel configuration register (DMA_CCR)
           */
           volatile reg::CCR3 CCR3;
         };
         struct {
-          volatile char _space_CNDTR3[52];
+          volatile char _space_CNDTR3[0x34];
           /**
             DMA channel 3 number of data register
           */
           volatile reg::CNDTR3 CNDTR3;
         };
         struct {
-          volatile char _space_CPAR3[56];
+          volatile char _space_CPAR3[0x38];
           /**
             DMA channel 3 peripheral address register
           */
           volatile reg::CPAR3 CPAR3;
         };
         struct {
-          volatile char _space_CMAR3[60];
+          volatile char _space_CMAR3[0x3c];
           /**
             DMA channel 3 memory address register
           */
           volatile reg::CMAR3 CMAR3;
         };
         struct {
-          volatile char _space_CCR4[68];
+          volatile char _space_CCR4[0x44];
           /**
             DMA channel configuration register (DMA_CCR)
           */
           volatile reg::CCR4 CCR4;
         };
         struct {
-          volatile char _space_CNDTR4[72];
+          volatile char _space_CNDTR4[0x48];
           /**
             DMA channel 4 number of data register
           */
           volatile reg::CNDTR4 CNDTR4;
         };
         struct {
-          volatile char _space_CPAR4[76];
+          volatile char _space_CPAR4[0x4c];
           /**
             DMA channel 4 peripheral address register
           */
           volatile reg::CPAR4 CPAR4;
         };
         struct {
-          volatile char _space_CMAR4[80];
+          volatile char _space_CMAR4[0x50];
           /**
             DMA channel 4 memory address register
           */
           volatile reg::CMAR4 CMAR4;
         };
         struct {
-          volatile char _space_CCR5[88];
+          volatile char _space_CCR5[0x58];
           /**
             DMA channel configuration register (DMA_CCR)
           */
           volatile reg::CCR5 CCR5;
         };
         struct {
-          volatile char _space_CNDTR5[92];
+          volatile char _space_CNDTR5[0x5c];
           /**
             DMA channel 5 number of data register
           */
           volatile reg::CNDTR5 CNDTR5;
         };
         struct {
-          volatile char _space_CPAR5[96];
+          volatile char _space_CPAR5[0x60];
           /**
             DMA channel 5 peripheral address register
           */
           volatile reg::CPAR5 CPAR5;
         };
         struct {
-          volatile char _space_CMAR5[100];
+          volatile char _space_CMAR5[0x64];
           /**
             DMA channel 5 memory address register
           */
           volatile reg::CMAR5 CMAR5;
         };
         struct {
-          volatile char _space_CCR6[108];
+          volatile char _space_CCR6[0x6c];
           /**
             DMA channel configuration register (DMA_CCR)
           */
           volatile reg::CCR6 CCR6;
         };
         struct {
-          volatile char _space_CNDTR6[112];
+          volatile char _space_CNDTR6[0x70];
           /**
             DMA channel 6 number of data register
           */
           volatile reg::CNDTR6 CNDTR6;
         };
         struct {
-          volatile char _space_CPAR6[116];
+          volatile char _space_CPAR6[0x74];
           /**
             DMA channel 6 peripheral address register
           */
           volatile reg::CPAR6 CPAR6;
         };
         struct {
-          volatile char _space_CMAR6[120];
+          volatile char _space_CMAR6[0x78];
           /**
             DMA channel 6 memory address register
           */
           volatile reg::CMAR6 CMAR6;
         };
         struct {
-          volatile char _space_CCR7[128];
+          volatile char _space_CCR7[0x80];
           /**
             DMA channel configuration register (DMA_CCR)
           */
           volatile reg::CCR7 CCR7;
         };
         struct {
-          volatile char _space_CNDTR7[132];
+          volatile char _space_CNDTR7[0x84];
           /**
             DMA channel 7 number of data register
           */
           volatile reg::CNDTR7 CNDTR7;
         };
         struct {
-          volatile char _space_CPAR7[136];
+          volatile char _space_CPAR7[0x88];
           /**
             DMA channel 7 peripheral address register
           */
           volatile reg::CPAR7 CPAR7;
         };
         struct {
-          volatile char _space_CMAR7[140];
+          volatile char _space_CMAR7[0x8c];
           /**
             DMA channel 7 memory address register
           */
