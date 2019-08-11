@@ -524,14 +524,14 @@ namespace target {
           Gets RAM_PARITY_CHECK
           @return value in range 0..1
         */
-        __attribute__((always_inline)) unsigned long getRAM_PARITY_CHECK_() volatile {
+        __attribute__((always_inline)) unsigned long getRAM_PARITY_CHECK() volatile {
           return (raw & (0x1 << 14)) >> 14;
         }
         /**
           Sets RAM_PARITY_CHECK
           @param value in range 0..1
         */
-        __attribute__((always_inline)) unsigned long setRAM_PARITY_CHECK_(unsigned long value) volatile {
+        __attribute__((always_inline)) unsigned long setRAM_PARITY_CHECK(unsigned long value) volatile {
           raw = (raw & ~(0x1 << 14)) | ((value << 14) & (0x1 << 14));
         }
       };
