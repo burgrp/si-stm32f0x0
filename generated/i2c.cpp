@@ -1,11 +1,11 @@
 namespace target {
   namespace i2c {
-    namespace reg {
-      
-      /**
-        Control register 1
-      */
-      class CR1 {
+    
+    /**
+      Control register 1
+    */
+    namespace CR1 {
+      class Register {
         volatile unsigned long raw;
         public:
         __attribute__((always_inline)) void operator= (unsigned long value) volatile {
@@ -15,305 +15,335 @@ namespace target {
           return raw;
         }
         /**
-          Gets Peripheral enable
-          @return value in range 0..1
+          Sets register to zero
         */
-        __attribute__((always_inline)) unsigned long getPE() volatile {
-          return (raw & (0x1 << 0)) >> 0;
+        __attribute__((always_inline)) Register& zero() volatile {
+          raw = 0;
+          return *(Register*)this;
+        }
+        /**
+          Gets Peripheral enable
+          @return boolean value
+        */
+        __attribute__((always_inline)) bool getPE() volatile {
+          return ((raw & (0x1 << 0)) >> 0);
         }
         /**
           Sets Peripheral enable
-          @param value in range 0..1
+          @param value boolean value
         */
-        __attribute__((always_inline)) unsigned long setPE(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 0)) | ((value << 0) & (0x1 << 0));
+        __attribute__((always_inline)) Register& setPE(bool value) volatile {
+          raw = (raw & ~(0x1 << 0)) | ((((value)) << 0) & (0x1 << 0));
+          return *(Register*)this;
         }
         /**
           Gets TX Interrupt enable
-          @return value in range 0..1
+          @return boolean value
         */
-        __attribute__((always_inline)) unsigned long getTXIE() volatile {
-          return (raw & (0x1 << 1)) >> 1;
+        __attribute__((always_inline)) bool getTXIE() volatile {
+          return ((raw & (0x1 << 1)) >> 1);
         }
         /**
           Sets TX Interrupt enable
-          @param value in range 0..1
+          @param value boolean value
         */
-        __attribute__((always_inline)) unsigned long setTXIE(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 1)) | ((value << 1) & (0x1 << 1));
+        __attribute__((always_inline)) Register& setTXIE(bool value) volatile {
+          raw = (raw & ~(0x1 << 1)) | ((((value)) << 1) & (0x1 << 1));
+          return *(Register*)this;
         }
         /**
           Gets RX Interrupt enable
-          @return value in range 0..1
+          @return boolean value
         */
-        __attribute__((always_inline)) unsigned long getRXIE() volatile {
-          return (raw & (0x1 << 2)) >> 2;
+        __attribute__((always_inline)) bool getRXIE() volatile {
+          return ((raw & (0x1 << 2)) >> 2);
         }
         /**
           Sets RX Interrupt enable
-          @param value in range 0..1
+          @param value boolean value
         */
-        __attribute__((always_inline)) unsigned long setRXIE(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 2)) | ((value << 2) & (0x1 << 2));
+        __attribute__((always_inline)) Register& setRXIE(bool value) volatile {
+          raw = (raw & ~(0x1 << 2)) | ((((value)) << 2) & (0x1 << 2));
+          return *(Register*)this;
         }
         /**
           Gets Address match interrupt enable (slave only)
-          @return value in range 0..1
+          @return boolean value
         */
-        __attribute__((always_inline)) unsigned long getADDRIE() volatile {
-          return (raw & (0x1 << 3)) >> 3;
+        __attribute__((always_inline)) bool getADDRIE() volatile {
+          return ((raw & (0x1 << 3)) >> 3);
         }
         /**
           Sets Address match interrupt enable (slave only)
-          @param value in range 0..1
+          @param value boolean value
         */
-        __attribute__((always_inline)) unsigned long setADDRIE(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 3)) | ((value << 3) & (0x1 << 3));
+        __attribute__((always_inline)) Register& setADDRIE(bool value) volatile {
+          raw = (raw & ~(0x1 << 3)) | ((((value)) << 3) & (0x1 << 3));
+          return *(Register*)this;
         }
         /**
           Gets Not acknowledge received interrupt enable
-          @return value in range 0..1
+          @return boolean value
         */
-        __attribute__((always_inline)) unsigned long getNACKIE() volatile {
-          return (raw & (0x1 << 4)) >> 4;
+        __attribute__((always_inline)) bool getNACKIE() volatile {
+          return ((raw & (0x1 << 4)) >> 4);
         }
         /**
           Sets Not acknowledge received interrupt enable
-          @param value in range 0..1
+          @param value boolean value
         */
-        __attribute__((always_inline)) unsigned long setNACKIE(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 4)) | ((value << 4) & (0x1 << 4));
+        __attribute__((always_inline)) Register& setNACKIE(bool value) volatile {
+          raw = (raw & ~(0x1 << 4)) | ((((value)) << 4) & (0x1 << 4));
+          return *(Register*)this;
         }
         /**
           Gets STOP detection Interrupt enable
-          @return value in range 0..1
+          @return boolean value
         */
-        __attribute__((always_inline)) unsigned long getSTOPIE() volatile {
-          return (raw & (0x1 << 5)) >> 5;
+        __attribute__((always_inline)) bool getSTOPIE() volatile {
+          return ((raw & (0x1 << 5)) >> 5);
         }
         /**
           Sets STOP detection Interrupt enable
-          @param value in range 0..1
+          @param value boolean value
         */
-        __attribute__((always_inline)) unsigned long setSTOPIE(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 5)) | ((value << 5) & (0x1 << 5));
+        __attribute__((always_inline)) Register& setSTOPIE(bool value) volatile {
+          raw = (raw & ~(0x1 << 5)) | ((((value)) << 5) & (0x1 << 5));
+          return *(Register*)this;
         }
         /**
           Gets Transfer Complete interrupt enable
-          @return value in range 0..1
+          @return boolean value
         */
-        __attribute__((always_inline)) unsigned long getTCIE() volatile {
-          return (raw & (0x1 << 6)) >> 6;
+        __attribute__((always_inline)) bool getTCIE() volatile {
+          return ((raw & (0x1 << 6)) >> 6);
         }
         /**
           Sets Transfer Complete interrupt enable
-          @param value in range 0..1
+          @param value boolean value
         */
-        __attribute__((always_inline)) unsigned long setTCIE(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 6)) | ((value << 6) & (0x1 << 6));
+        __attribute__((always_inline)) Register& setTCIE(bool value) volatile {
+          raw = (raw & ~(0x1 << 6)) | ((((value)) << 6) & (0x1 << 6));
+          return *(Register*)this;
         }
         /**
           Gets Error interrupts enable
-          @return value in range 0..1
+          @return boolean value
         */
-        __attribute__((always_inline)) unsigned long getERRIE() volatile {
-          return (raw & (0x1 << 7)) >> 7;
+        __attribute__((always_inline)) bool getERRIE() volatile {
+          return ((raw & (0x1 << 7)) >> 7);
         }
         /**
           Sets Error interrupts enable
-          @param value in range 0..1
+          @param value boolean value
         */
-        __attribute__((always_inline)) unsigned long setERRIE(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 7)) | ((value << 7) & (0x1 << 7));
+        __attribute__((always_inline)) Register& setERRIE(bool value) volatile {
+          raw = (raw & ~(0x1 << 7)) | ((((value)) << 7) & (0x1 << 7));
+          return *(Register*)this;
         }
         /**
           Gets Digital noise filter
           @return value in range 0..15
         */
         __attribute__((always_inline)) unsigned long getDNF() volatile {
-          return (raw & (0xF << 8)) >> 8;
+          return ((raw & (0xF << 8)) >> 8);
         }
         /**
           Sets Digital noise filter
-          @param value in range 0..15
+          @param value value in range 0..15
         */
-        __attribute__((always_inline)) unsigned long setDNF(unsigned long value) volatile {
-          raw = (raw & ~(0xF << 8)) | ((value << 8) & (0xF << 8));
+        __attribute__((always_inline)) Register& setDNF(unsigned long value) volatile {
+          raw = (raw & ~(0xF << 8)) | ((((value)) << 8) & (0xF << 8));
+          return *(Register*)this;
         }
         /**
           Gets Analog noise filter OFF
-          @return value in range 0..1
+          @return boolean value
         */
-        __attribute__((always_inline)) unsigned long getANFOFF() volatile {
-          return (raw & (0x1 << 12)) >> 12;
+        __attribute__((always_inline)) bool getANFOFF() volatile {
+          return ((raw & (0x1 << 12)) >> 12);
         }
         /**
           Sets Analog noise filter OFF
-          @param value in range 0..1
+          @param value boolean value
         */
-        __attribute__((always_inline)) unsigned long setANFOFF(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 12)) | ((value << 12) & (0x1 << 12));
+        __attribute__((always_inline)) Register& setANFOFF(bool value) volatile {
+          raw = (raw & ~(0x1 << 12)) | ((((value)) << 12) & (0x1 << 12));
+          return *(Register*)this;
         }
         /**
           Gets Software reset
-          @return value in range 0..1
+          @return boolean value
         */
-        __attribute__((always_inline)) unsigned long getSWRST() volatile {
-          return (raw & (0x1 << 13)) >> 13;
+        __attribute__((always_inline)) bool getSWRST() volatile {
+          return ((raw & (0x1 << 13)) >> 13);
         }
         /**
           Sets Software reset
-          @param value in range 0..1
+          @param value boolean value
         */
-        __attribute__((always_inline)) unsigned long setSWRST(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 13)) | ((value << 13) & (0x1 << 13));
+        __attribute__((always_inline)) Register& setSWRST(bool value) volatile {
+          raw = (raw & ~(0x1 << 13)) | ((((value)) << 13) & (0x1 << 13));
+          return *(Register*)this;
         }
         /**
           Gets DMA transmission requests enable
-          @return value in range 0..1
+          @return boolean value
         */
-        __attribute__((always_inline)) unsigned long getTXDMAEN() volatile {
-          return (raw & (0x1 << 14)) >> 14;
+        __attribute__((always_inline)) bool getTXDMAEN() volatile {
+          return ((raw & (0x1 << 14)) >> 14);
         }
         /**
           Sets DMA transmission requests enable
-          @param value in range 0..1
+          @param value boolean value
         */
-        __attribute__((always_inline)) unsigned long setTXDMAEN(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 14)) | ((value << 14) & (0x1 << 14));
+        __attribute__((always_inline)) Register& setTXDMAEN(bool value) volatile {
+          raw = (raw & ~(0x1 << 14)) | ((((value)) << 14) & (0x1 << 14));
+          return *(Register*)this;
         }
         /**
           Gets DMA reception requests enable
-          @return value in range 0..1
+          @return boolean value
         */
-        __attribute__((always_inline)) unsigned long getRXDMAEN() volatile {
-          return (raw & (0x1 << 15)) >> 15;
+        __attribute__((always_inline)) bool getRXDMAEN() volatile {
+          return ((raw & (0x1 << 15)) >> 15);
         }
         /**
           Sets DMA reception requests enable
-          @param value in range 0..1
+          @param value boolean value
         */
-        __attribute__((always_inline)) unsigned long setRXDMAEN(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 15)) | ((value << 15) & (0x1 << 15));
+        __attribute__((always_inline)) Register& setRXDMAEN(bool value) volatile {
+          raw = (raw & ~(0x1 << 15)) | ((((value)) << 15) & (0x1 << 15));
+          return *(Register*)this;
         }
         /**
           Gets Slave byte control
-          @return value in range 0..1
+          @return boolean value
         */
-        __attribute__((always_inline)) unsigned long getSBC() volatile {
-          return (raw & (0x1 << 16)) >> 16;
+        __attribute__((always_inline)) bool getSBC() volatile {
+          return ((raw & (0x1 << 16)) >> 16);
         }
         /**
           Sets Slave byte control
-          @param value in range 0..1
+          @param value boolean value
         */
-        __attribute__((always_inline)) unsigned long setSBC(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 16)) | ((value << 16) & (0x1 << 16));
+        __attribute__((always_inline)) Register& setSBC(bool value) volatile {
+          raw = (raw & ~(0x1 << 16)) | ((((value)) << 16) & (0x1 << 16));
+          return *(Register*)this;
         }
         /**
           Gets Clock stretching disable
-          @return value in range 0..1
+          @return boolean value
         */
-        __attribute__((always_inline)) unsigned long getNOSTRETCH() volatile {
-          return (raw & (0x1 << 17)) >> 17;
+        __attribute__((always_inline)) bool getNOSTRETCH() volatile {
+          return ((raw & (0x1 << 17)) >> 17);
         }
         /**
           Sets Clock stretching disable
-          @param value in range 0..1
+          @param value boolean value
         */
-        __attribute__((always_inline)) unsigned long setNOSTRETCH(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 17)) | ((value << 17) & (0x1 << 17));
+        __attribute__((always_inline)) Register& setNOSTRETCH(bool value) volatile {
+          raw = (raw & ~(0x1 << 17)) | ((((value)) << 17) & (0x1 << 17));
+          return *(Register*)this;
         }
         /**
           Gets Wakeup from STOP enable
-          @return value in range 0..1
+          @return boolean value
         */
-        __attribute__((always_inline)) unsigned long getWUPEN() volatile {
-          return (raw & (0x1 << 18)) >> 18;
+        __attribute__((always_inline)) bool getWUPEN() volatile {
+          return ((raw & (0x1 << 18)) >> 18);
         }
         /**
           Sets Wakeup from STOP enable
-          @param value in range 0..1
+          @param value boolean value
         */
-        __attribute__((always_inline)) unsigned long setWUPEN(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 18)) | ((value << 18) & (0x1 << 18));
+        __attribute__((always_inline)) Register& setWUPEN(bool value) volatile {
+          raw = (raw & ~(0x1 << 18)) | ((((value)) << 18) & (0x1 << 18));
+          return *(Register*)this;
         }
         /**
           Gets General call enable
-          @return value in range 0..1
+          @return boolean value
         */
-        __attribute__((always_inline)) unsigned long getGCEN() volatile {
-          return (raw & (0x1 << 19)) >> 19;
+        __attribute__((always_inline)) bool getGCEN() volatile {
+          return ((raw & (0x1 << 19)) >> 19);
         }
         /**
           Sets General call enable
-          @param value in range 0..1
+          @param value boolean value
         */
-        __attribute__((always_inline)) unsigned long setGCEN(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 19)) | ((value << 19) & (0x1 << 19));
+        __attribute__((always_inline)) Register& setGCEN(bool value) volatile {
+          raw = (raw & ~(0x1 << 19)) | ((((value)) << 19) & (0x1 << 19));
+          return *(Register*)this;
         }
         /**
           Gets SMBus Host address enable
-          @return value in range 0..1
+          @return boolean value
         */
-        __attribute__((always_inline)) unsigned long getSMBHEN() volatile {
-          return (raw & (0x1 << 20)) >> 20;
+        __attribute__((always_inline)) bool getSMBHEN() volatile {
+          return ((raw & (0x1 << 20)) >> 20);
         }
         /**
           Sets SMBus Host address enable
-          @param value in range 0..1
+          @param value boolean value
         */
-        __attribute__((always_inline)) unsigned long setSMBHEN(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 20)) | ((value << 20) & (0x1 << 20));
+        __attribute__((always_inline)) Register& setSMBHEN(bool value) volatile {
+          raw = (raw & ~(0x1 << 20)) | ((((value)) << 20) & (0x1 << 20));
+          return *(Register*)this;
         }
         /**
           Gets SMBus Device Default address enable
-          @return value in range 0..1
+          @return boolean value
         */
-        __attribute__((always_inline)) unsigned long getSMBDEN() volatile {
-          return (raw & (0x1 << 21)) >> 21;
+        __attribute__((always_inline)) bool getSMBDEN() volatile {
+          return ((raw & (0x1 << 21)) >> 21);
         }
         /**
           Sets SMBus Device Default address enable
-          @param value in range 0..1
+          @param value boolean value
         */
-        __attribute__((always_inline)) unsigned long setSMBDEN(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 21)) | ((value << 21) & (0x1 << 21));
+        __attribute__((always_inline)) Register& setSMBDEN(bool value) volatile {
+          raw = (raw & ~(0x1 << 21)) | ((((value)) << 21) & (0x1 << 21));
+          return *(Register*)this;
         }
         /**
           Gets SMBUS alert enable
-          @return value in range 0..1
+          @return boolean value
         */
-        __attribute__((always_inline)) unsigned long getALERTEN() volatile {
-          return (raw & (0x1 << 22)) >> 22;
+        __attribute__((always_inline)) bool getALERTEN() volatile {
+          return ((raw & (0x1 << 22)) >> 22);
         }
         /**
           Sets SMBUS alert enable
-          @param value in range 0..1
+          @param value boolean value
         */
-        __attribute__((always_inline)) unsigned long setALERTEN(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 22)) | ((value << 22) & (0x1 << 22));
+        __attribute__((always_inline)) Register& setALERTEN(bool value) volatile {
+          raw = (raw & ~(0x1 << 22)) | ((((value)) << 22) & (0x1 << 22));
+          return *(Register*)this;
         }
         /**
           Gets PEC enable
-          @return value in range 0..1
+          @return boolean value
         */
-        __attribute__((always_inline)) unsigned long getPECEN() volatile {
-          return (raw & (0x1 << 23)) >> 23;
+        __attribute__((always_inline)) bool getPECEN() volatile {
+          return ((raw & (0x1 << 23)) >> 23);
         }
         /**
           Sets PEC enable
-          @param value in range 0..1
+          @param value boolean value
         */
-        __attribute__((always_inline)) unsigned long setPECEN(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 23)) | ((value << 23) & (0x1 << 23));
+        __attribute__((always_inline)) Register& setPECEN(bool value) volatile {
+          raw = (raw & ~(0x1 << 23)) | ((((value)) << 23) & (0x1 << 23));
+          return *(Register*)this;
         }
       };
-      
-      /**
-        Control register 2
-      */
-      class CR2 {
+    };
+    
+    /**
+      Control register 2
+    */
+    namespace CR2 {
+      class Register {
         volatile unsigned long raw;
         public:
         __attribute__((always_inline)) void operator= (unsigned long value) volatile {
@@ -323,181 +353,187 @@ namespace target {
           return raw;
         }
         /**
+          Sets register to zero
+        */
+        __attribute__((always_inline)) Register& zero() volatile {
+          raw = 0;
+          return *(Register*)this;
+        }
+        /**
           Gets Slave address bit 0 (master mode)
           @param index in range 0..8
-          @return value in range 0..1
+          @return boolean value
         */
-        __attribute__((always_inline)) unsigned long getSADD(int index) volatile {
-          return (raw & (0x1 << (0 + 1 * (index - 0)))) >> (0 + 1 * (index - 0));
+        __attribute__((always_inline)) bool getSADD(int index) volatile {
+          return ((raw & (0x1 << (0 + 1 * (index - 0)))) >> (0 + 1 * (index - 0)));
         }
         /**
           Sets Slave address bit 0 (master mode)
           @param index in range 0..8
-          @param value in range 0..1
+          @param value boolean value
         */
-        __attribute__((always_inline)) unsigned long setSADD(int index, unsigned long value) volatile {
-          raw = (raw & ~(0x1 << (0 + 1 * (index - 0)))) | ((value << (0 + 1 * (index - 0))) & (0x1 << (0 + 1 * (index - 0))));
-        }
-        /**
-          Gets Slave address bit 0 (master mode)
-          @return value in range 0..511
-        */
-        __attribute__((always_inline)) unsigned long getSADD() volatile {
-          return (raw & (0x1FF << 0)) >> 0;
-        }
-        /**
-          Sets Slave address bit 0 (master mode)
-          @param value in range 0..511
-        */
-        __attribute__((always_inline)) unsigned long setSADD(unsigned long value) volatile {
-          raw = (raw & ~(0x1FF << 0)) | ((value << 0) & (0x1FF << 0));
+        __attribute__((always_inline)) Register& setSADD(int index, bool value) volatile {
+          raw = (raw & ~(0x1 << (0 + 1 * (index - 0)))) | ((((value)) << (0 + 1 * (index - 0))) & (0x1 << (0 + 1 * (index - 0))));
+          return *(Register*)this;
         }
         /**
           Gets Packet error checking byte
-          @return value in range 0..1
+          @return boolean value
         */
-        __attribute__((always_inline)) unsigned long getPECBYTE() volatile {
-          return (raw & (0x1 << 26)) >> 26;
+        __attribute__((always_inline)) bool getPECBYTE() volatile {
+          return ((raw & (0x1 << 26)) >> 26);
         }
         /**
           Sets Packet error checking byte
-          @param value in range 0..1
+          @param value boolean value
         */
-        __attribute__((always_inline)) unsigned long setPECBYTE(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 26)) | ((value << 26) & (0x1 << 26));
+        __attribute__((always_inline)) Register& setPECBYTE(bool value) volatile {
+          raw = (raw & ~(0x1 << 26)) | ((((value)) << 26) & (0x1 << 26));
+          return *(Register*)this;
         }
         /**
           Gets Automatic end mode (master mode)
-          @return value in range 0..1
+          @return boolean value
         */
-        __attribute__((always_inline)) unsigned long getAUTOEND() volatile {
-          return (raw & (0x1 << 25)) >> 25;
+        __attribute__((always_inline)) bool getAUTOEND() volatile {
+          return ((raw & (0x1 << 25)) >> 25);
         }
         /**
           Sets Automatic end mode (master mode)
-          @param value in range 0..1
+          @param value boolean value
         */
-        __attribute__((always_inline)) unsigned long setAUTOEND(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 25)) | ((value << 25) & (0x1 << 25));
+        __attribute__((always_inline)) Register& setAUTOEND(bool value) volatile {
+          raw = (raw & ~(0x1 << 25)) | ((((value)) << 25) & (0x1 << 25));
+          return *(Register*)this;
         }
         /**
           Gets NBYTES reload mode
-          @return value in range 0..1
+          @return boolean value
         */
-        __attribute__((always_inline)) unsigned long getRELOAD() volatile {
-          return (raw & (0x1 << 24)) >> 24;
+        __attribute__((always_inline)) bool getRELOAD() volatile {
+          return ((raw & (0x1 << 24)) >> 24);
         }
         /**
           Sets NBYTES reload mode
-          @param value in range 0..1
+          @param value boolean value
         */
-        __attribute__((always_inline)) unsigned long setRELOAD(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 24)) | ((value << 24) & (0x1 << 24));
+        __attribute__((always_inline)) Register& setRELOAD(bool value) volatile {
+          raw = (raw & ~(0x1 << 24)) | ((((value)) << 24) & (0x1 << 24));
+          return *(Register*)this;
         }
         /**
           Gets Number of bytes
           @return value in range 0..255
         */
         __attribute__((always_inline)) unsigned long getNBYTES() volatile {
-          return (raw & (0xFF << 16)) >> 16;
+          return ((raw & (0xFF << 16)) >> 16);
         }
         /**
           Sets Number of bytes
-          @param value in range 0..255
+          @param value value in range 0..255
         */
-        __attribute__((always_inline)) unsigned long setNBYTES(unsigned long value) volatile {
-          raw = (raw & ~(0xFF << 16)) | ((value << 16) & (0xFF << 16));
+        __attribute__((always_inline)) Register& setNBYTES(unsigned long value) volatile {
+          raw = (raw & ~(0xFF << 16)) | ((((value)) << 16) & (0xFF << 16));
+          return *(Register*)this;
         }
         /**
           Gets NACK generation (slave mode)
-          @return value in range 0..1
+          @return boolean value
         */
-        __attribute__((always_inline)) unsigned long getNACK() volatile {
-          return (raw & (0x1 << 15)) >> 15;
+        __attribute__((always_inline)) bool getNACK() volatile {
+          return ((raw & (0x1 << 15)) >> 15);
         }
         /**
           Sets NACK generation (slave mode)
-          @param value in range 0..1
+          @param value boolean value
         */
-        __attribute__((always_inline)) unsigned long setNACK(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 15)) | ((value << 15) & (0x1 << 15));
+        __attribute__((always_inline)) Register& setNACK(bool value) volatile {
+          raw = (raw & ~(0x1 << 15)) | ((((value)) << 15) & (0x1 << 15));
+          return *(Register*)this;
         }
         /**
           Gets Stop generation (master mode)
-          @return value in range 0..1
+          @return boolean value
         */
-        __attribute__((always_inline)) unsigned long getSTOP() volatile {
-          return (raw & (0x1 << 14)) >> 14;
+        __attribute__((always_inline)) bool getSTOP() volatile {
+          return ((raw & (0x1 << 14)) >> 14);
         }
         /**
           Sets Stop generation (master mode)
-          @param value in range 0..1
+          @param value boolean value
         */
-        __attribute__((always_inline)) unsigned long setSTOP(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 14)) | ((value << 14) & (0x1 << 14));
+        __attribute__((always_inline)) Register& setSTOP(bool value) volatile {
+          raw = (raw & ~(0x1 << 14)) | ((((value)) << 14) & (0x1 << 14));
+          return *(Register*)this;
         }
         /**
           Gets Start generation
-          @return value in range 0..1
+          @return boolean value
         */
-        __attribute__((always_inline)) unsigned long getSTART() volatile {
-          return (raw & (0x1 << 13)) >> 13;
+        __attribute__((always_inline)) bool getSTART() volatile {
+          return ((raw & (0x1 << 13)) >> 13);
         }
         /**
           Sets Start generation
-          @param value in range 0..1
+          @param value boolean value
         */
-        __attribute__((always_inline)) unsigned long setSTART(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 13)) | ((value << 13) & (0x1 << 13));
+        __attribute__((always_inline)) Register& setSTART(bool value) volatile {
+          raw = (raw & ~(0x1 << 13)) | ((((value)) << 13) & (0x1 << 13));
+          return *(Register*)this;
         }
         /**
           Gets 10-bit address header only read direction (master receiver mode)
-          @return value in range 0..1
+          @return boolean value
         */
-        __attribute__((always_inline)) unsigned long getHEAD10R() volatile {
-          return (raw & (0x1 << 12)) >> 12;
+        __attribute__((always_inline)) bool getHEAD10R() volatile {
+          return ((raw & (0x1 << 12)) >> 12);
         }
         /**
           Sets 10-bit address header only read direction (master receiver mode)
-          @param value in range 0..1
+          @param value boolean value
         */
-        __attribute__((always_inline)) unsigned long setHEAD10R(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 12)) | ((value << 12) & (0x1 << 12));
+        __attribute__((always_inline)) Register& setHEAD10R(bool value) volatile {
+          raw = (raw & ~(0x1 << 12)) | ((((value)) << 12) & (0x1 << 12));
+          return *(Register*)this;
         }
         /**
           Gets 10-bit addressing mode (master mode)
-          @return value in range 0..1
+          @return boolean value
         */
-        __attribute__((always_inline)) unsigned long getADD10() volatile {
-          return (raw & (0x1 << 11)) >> 11;
+        __attribute__((always_inline)) bool getADD10() volatile {
+          return ((raw & (0x1 << 11)) >> 11);
         }
         /**
           Sets 10-bit addressing mode (master mode)
-          @param value in range 0..1
+          @param value boolean value
         */
-        __attribute__((always_inline)) unsigned long setADD10(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 11)) | ((value << 11) & (0x1 << 11));
+        __attribute__((always_inline)) Register& setADD10(bool value) volatile {
+          raw = (raw & ~(0x1 << 11)) | ((((value)) << 11) & (0x1 << 11));
+          return *(Register*)this;
         }
         /**
           Gets Transfer direction (master mode)
-          @return value in range 0..1
+          @return boolean value
         */
-        __attribute__((always_inline)) unsigned long getRD_WRN() volatile {
-          return (raw & (0x1 << 10)) >> 10;
+        __attribute__((always_inline)) bool getRD_WRN() volatile {
+          return ((raw & (0x1 << 10)) >> 10);
         }
         /**
           Sets Transfer direction (master mode)
-          @param value in range 0..1
+          @param value boolean value
         */
-        __attribute__((always_inline)) unsigned long setRD_WRN(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 10)) | ((value << 10) & (0x1 << 10));
+        __attribute__((always_inline)) Register& setRD_WRN(bool value) volatile {
+          raw = (raw & ~(0x1 << 10)) | ((((value)) << 10) & (0x1 << 10));
+          return *(Register*)this;
         }
       };
-      
-      /**
-        Own address register 1
-      */
-      class OAR1 {
+    };
+    
+    /**
+      Own address register 1
+    */
+    namespace OAR1 {
+      class Register {
         volatile unsigned long raw;
         public:
         __attribute__((always_inline)) void operator= (unsigned long value) volatile {
@@ -507,81 +543,95 @@ namespace target {
           return raw;
         }
         /**
-          Gets Interface address
-          @return value in range 0..1
+          Sets register to zero
         */
-        __attribute__((always_inline)) unsigned long getOA1_0() volatile {
-          return (raw & (0x1 << 0)) >> 0;
+        __attribute__((always_inline)) Register& zero() volatile {
+          raw = 0;
+          return *(Register*)this;
+        }
+        /**
+          Gets Interface address
+          @return boolean value
+        */
+        __attribute__((always_inline)) bool getOA1_0() volatile {
+          return ((raw & (0x1 << 0)) >> 0);
         }
         /**
           Sets Interface address
-          @param value in range 0..1
+          @param value boolean value
         */
-        __attribute__((always_inline)) unsigned long setOA1_0(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 0)) | ((value << 0) & (0x1 << 0));
+        __attribute__((always_inline)) Register& setOA1_0(bool value) volatile {
+          raw = (raw & ~(0x1 << 0)) | ((((value)) << 0) & (0x1 << 0));
+          return *(Register*)this;
         }
         /**
           Gets Interface address
           @return value in range 0..127
         */
         __attribute__((always_inline)) unsigned long getOA1_1() volatile {
-          return (raw & (0x7F << 1)) >> 1;
+          return ((raw & (0x7F << 1)) >> 1);
         }
         /**
           Sets Interface address
-          @param value in range 0..127
+          @param value value in range 0..127
         */
-        __attribute__((always_inline)) unsigned long setOA1_1(unsigned long value) volatile {
-          raw = (raw & ~(0x7F << 1)) | ((value << 1) & (0x7F << 1));
+        __attribute__((always_inline)) Register& setOA1_1(unsigned long value) volatile {
+          raw = (raw & ~(0x7F << 1)) | ((((value)) << 1) & (0x7F << 1));
+          return *(Register*)this;
         }
         /**
           Gets Interface address
           @return value in range 0..3
         */
         __attribute__((always_inline)) unsigned long getOA1_8() volatile {
-          return (raw & (0x3 << 8)) >> 8;
+          return ((raw & (0x3 << 8)) >> 8);
         }
         /**
           Sets Interface address
-          @param value in range 0..3
+          @param value value in range 0..3
         */
-        __attribute__((always_inline)) unsigned long setOA1_8(unsigned long value) volatile {
-          raw = (raw & ~(0x3 << 8)) | ((value << 8) & (0x3 << 8));
+        __attribute__((always_inline)) Register& setOA1_8(unsigned long value) volatile {
+          raw = (raw & ~(0x3 << 8)) | ((((value)) << 8) & (0x3 << 8));
+          return *(Register*)this;
         }
         /**
           Gets Own Address 1 10-bit mode
-          @return value in range 0..1
+          @return boolean value
         */
-        __attribute__((always_inline)) unsigned long getOA1MODE() volatile {
-          return (raw & (0x1 << 10)) >> 10;
+        __attribute__((always_inline)) bool getOA1MODE() volatile {
+          return ((raw & (0x1 << 10)) >> 10);
         }
         /**
           Sets Own Address 1 10-bit mode
-          @param value in range 0..1
+          @param value boolean value
         */
-        __attribute__((always_inline)) unsigned long setOA1MODE(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 10)) | ((value << 10) & (0x1 << 10));
+        __attribute__((always_inline)) Register& setOA1MODE(bool value) volatile {
+          raw = (raw & ~(0x1 << 10)) | ((((value)) << 10) & (0x1 << 10));
+          return *(Register*)this;
         }
         /**
           Gets Own Address 1 enable
-          @return value in range 0..1
+          @return boolean value
         */
-        __attribute__((always_inline)) unsigned long getOA1EN() volatile {
-          return (raw & (0x1 << 15)) >> 15;
+        __attribute__((always_inline)) bool getOA1EN() volatile {
+          return ((raw & (0x1 << 15)) >> 15);
         }
         /**
           Sets Own Address 1 enable
-          @param value in range 0..1
+          @param value boolean value
         */
-        __attribute__((always_inline)) unsigned long setOA1EN(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 15)) | ((value << 15) & (0x1 << 15));
+        __attribute__((always_inline)) Register& setOA1EN(bool value) volatile {
+          raw = (raw & ~(0x1 << 15)) | ((((value)) << 15) & (0x1 << 15));
+          return *(Register*)this;
         }
       };
-      
-      /**
-        Own address register 2
-      */
-      class OAR2 {
+    };
+    
+    /**
+      Own address register 2
+    */
+    namespace OAR2 {
+      class Register {
         volatile unsigned long raw;
         public:
         __attribute__((always_inline)) void operator= (unsigned long value) volatile {
@@ -589,55 +639,67 @@ namespace target {
         }
         __attribute__((always_inline)) operator unsigned long () volatile {
           return raw;
+        }
+        /**
+          Sets register to zero
+        */
+        __attribute__((always_inline)) Register& zero() volatile {
+          raw = 0;
+          return *(Register*)this;
         }
         /**
           Gets Interface address
           @return value in range 0..127
         */
         __attribute__((always_inline)) unsigned long getOA2() volatile {
-          return (raw & (0x7F << 1)) >> 1;
+          return ((raw & (0x7F << 1)) >> 1);
         }
         /**
           Sets Interface address
-          @param value in range 0..127
+          @param value value in range 0..127
         */
-        __attribute__((always_inline)) unsigned long setOA2(unsigned long value) volatile {
-          raw = (raw & ~(0x7F << 1)) | ((value << 1) & (0x7F << 1));
+        __attribute__((always_inline)) Register& setOA2(unsigned long value) volatile {
+          raw = (raw & ~(0x7F << 1)) | ((((value)) << 1) & (0x7F << 1));
+          return *(Register*)this;
         }
         /**
           Gets Own Address 2 masks
           @return value in range 0..7
         */
         __attribute__((always_inline)) unsigned long getOA2MSK() volatile {
-          return (raw & (0x7 << 8)) >> 8;
+          return ((raw & (0x7 << 8)) >> 8);
         }
         /**
           Sets Own Address 2 masks
-          @param value in range 0..7
+          @param value value in range 0..7
         */
-        __attribute__((always_inline)) unsigned long setOA2MSK(unsigned long value) volatile {
-          raw = (raw & ~(0x7 << 8)) | ((value << 8) & (0x7 << 8));
+        __attribute__((always_inline)) Register& setOA2MSK(unsigned long value) volatile {
+          raw = (raw & ~(0x7 << 8)) | ((((value)) << 8) & (0x7 << 8));
+          return *(Register*)this;
         }
         /**
           Gets Own Address 2 enable
-          @return value in range 0..1
+          @return boolean value
         */
-        __attribute__((always_inline)) unsigned long getOA2EN() volatile {
-          return (raw & (0x1 << 15)) >> 15;
+        __attribute__((always_inline)) bool getOA2EN() volatile {
+          return ((raw & (0x1 << 15)) >> 15);
         }
         /**
           Sets Own Address 2 enable
-          @param value in range 0..1
+          @param value boolean value
         */
-        __attribute__((always_inline)) unsigned long setOA2EN(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 15)) | ((value << 15) & (0x1 << 15));
+        __attribute__((always_inline)) Register& setOA2EN(bool value) volatile {
+          raw = (raw & ~(0x1 << 15)) | ((((value)) << 15) & (0x1 << 15));
+          return *(Register*)this;
         }
       };
-      
-      /**
-        Timing register
-      */
-      class TIMINGR {
+    };
+    
+    /**
+      Timing register
+    */
+    namespace TIMINGR {
+      class Register {
         volatile unsigned long raw;
         public:
         __attribute__((always_inline)) void operator= (unsigned long value) volatile {
@@ -645,83 +707,97 @@ namespace target {
         }
         __attribute__((always_inline)) operator unsigned long () volatile {
           return raw;
+        }
+        /**
+          Sets register to zero
+        */
+        __attribute__((always_inline)) Register& zero() volatile {
+          raw = 0;
+          return *(Register*)this;
         }
         /**
           Gets SCL low period (master mode)
           @return value in range 0..255
         */
         __attribute__((always_inline)) unsigned long getSCLL() volatile {
-          return (raw & (0xFF << 0)) >> 0;
+          return ((raw & (0xFF << 0)) >> 0);
         }
         /**
           Sets SCL low period (master mode)
-          @param value in range 0..255
+          @param value value in range 0..255
         */
-        __attribute__((always_inline)) unsigned long setSCLL(unsigned long value) volatile {
-          raw = (raw & ~(0xFF << 0)) | ((value << 0) & (0xFF << 0));
+        __attribute__((always_inline)) Register& setSCLL(unsigned long value) volatile {
+          raw = (raw & ~(0xFF << 0)) | ((((value)) << 0) & (0xFF << 0));
+          return *(Register*)this;
         }
         /**
           Gets SCL high period (master mode)
           @return value in range 0..255
         */
         __attribute__((always_inline)) unsigned long getSCLH() volatile {
-          return (raw & (0xFF << 8)) >> 8;
+          return ((raw & (0xFF << 8)) >> 8);
         }
         /**
           Sets SCL high period (master mode)
-          @param value in range 0..255
+          @param value value in range 0..255
         */
-        __attribute__((always_inline)) unsigned long setSCLH(unsigned long value) volatile {
-          raw = (raw & ~(0xFF << 8)) | ((value << 8) & (0xFF << 8));
+        __attribute__((always_inline)) Register& setSCLH(unsigned long value) volatile {
+          raw = (raw & ~(0xFF << 8)) | ((((value)) << 8) & (0xFF << 8));
+          return *(Register*)this;
         }
         /**
           Gets Data hold time
           @return value in range 0..15
         */
         __attribute__((always_inline)) unsigned long getSDADEL() volatile {
-          return (raw & (0xF << 16)) >> 16;
+          return ((raw & (0xF << 16)) >> 16);
         }
         /**
           Sets Data hold time
-          @param value in range 0..15
+          @param value value in range 0..15
         */
-        __attribute__((always_inline)) unsigned long setSDADEL(unsigned long value) volatile {
-          raw = (raw & ~(0xF << 16)) | ((value << 16) & (0xF << 16));
+        __attribute__((always_inline)) Register& setSDADEL(unsigned long value) volatile {
+          raw = (raw & ~(0xF << 16)) | ((((value)) << 16) & (0xF << 16));
+          return *(Register*)this;
         }
         /**
           Gets Data setup time
           @return value in range 0..15
         */
         __attribute__((always_inline)) unsigned long getSCLDEL() volatile {
-          return (raw & (0xF << 20)) >> 20;
+          return ((raw & (0xF << 20)) >> 20);
         }
         /**
           Sets Data setup time
-          @param value in range 0..15
+          @param value value in range 0..15
         */
-        __attribute__((always_inline)) unsigned long setSCLDEL(unsigned long value) volatile {
-          raw = (raw & ~(0xF << 20)) | ((value << 20) & (0xF << 20));
+        __attribute__((always_inline)) Register& setSCLDEL(unsigned long value) volatile {
+          raw = (raw & ~(0xF << 20)) | ((((value)) << 20) & (0xF << 20));
+          return *(Register*)this;
         }
         /**
           Gets Timing prescaler
           @return value in range 0..15
         */
         __attribute__((always_inline)) unsigned long getPRESC() volatile {
-          return (raw & (0xF << 28)) >> 28;
+          return ((raw & (0xF << 28)) >> 28);
         }
         /**
           Sets Timing prescaler
-          @param value in range 0..15
+          @param value value in range 0..15
         */
-        __attribute__((always_inline)) unsigned long setPRESC(unsigned long value) volatile {
-          raw = (raw & ~(0xF << 28)) | ((value << 28) & (0xF << 28));
+        __attribute__((always_inline)) Register& setPRESC(unsigned long value) volatile {
+          raw = (raw & ~(0xF << 28)) | ((((value)) << 28) & (0xF << 28));
+          return *(Register*)this;
         }
       };
-      
-      /**
-        Status register 1
-      */
-      class TIMEOUTR {
+    };
+    
+    /**
+      Status register 1
+    */
+    namespace TIMEOUTR {
+      class Register {
         volatile unsigned long raw;
         public:
         __attribute__((always_inline)) void operator= (unsigned long value) volatile {
@@ -729,83 +805,97 @@ namespace target {
         }
         __attribute__((always_inline)) operator unsigned long () volatile {
           return raw;
+        }
+        /**
+          Sets register to zero
+        */
+        __attribute__((always_inline)) Register& zero() volatile {
+          raw = 0;
+          return *(Register*)this;
         }
         /**
           Gets Bus timeout A
           @return value in range 0..4095
         */
         __attribute__((always_inline)) unsigned long getTIMEOUTA() volatile {
-          return (raw & (0xFFF << 0)) >> 0;
+          return ((raw & (0xFFF << 0)) >> 0);
         }
         /**
           Sets Bus timeout A
-          @param value in range 0..4095
+          @param value value in range 0..4095
         */
-        __attribute__((always_inline)) unsigned long setTIMEOUTA(unsigned long value) volatile {
-          raw = (raw & ~(0xFFF << 0)) | ((value << 0) & (0xFFF << 0));
+        __attribute__((always_inline)) Register& setTIMEOUTA(unsigned long value) volatile {
+          raw = (raw & ~(0xFFF << 0)) | ((((value)) << 0) & (0xFFF << 0));
+          return *(Register*)this;
         }
         /**
           Gets Idle clock timeout detection
-          @return value in range 0..1
+          @return boolean value
         */
-        __attribute__((always_inline)) unsigned long getTIDLE() volatile {
-          return (raw & (0x1 << 12)) >> 12;
+        __attribute__((always_inline)) bool getTIDLE() volatile {
+          return ((raw & (0x1 << 12)) >> 12);
         }
         /**
           Sets Idle clock timeout detection
-          @param value in range 0..1
+          @param value boolean value
         */
-        __attribute__((always_inline)) unsigned long setTIDLE(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 12)) | ((value << 12) & (0x1 << 12));
+        __attribute__((always_inline)) Register& setTIDLE(bool value) volatile {
+          raw = (raw & ~(0x1 << 12)) | ((((value)) << 12) & (0x1 << 12));
+          return *(Register*)this;
         }
         /**
           Gets Clock timeout enable
-          @return value in range 0..1
+          @return boolean value
         */
-        __attribute__((always_inline)) unsigned long getTIMOUTEN() volatile {
-          return (raw & (0x1 << 15)) >> 15;
+        __attribute__((always_inline)) bool getTIMOUTEN() volatile {
+          return ((raw & (0x1 << 15)) >> 15);
         }
         /**
           Sets Clock timeout enable
-          @param value in range 0..1
+          @param value boolean value
         */
-        __attribute__((always_inline)) unsigned long setTIMOUTEN(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 15)) | ((value << 15) & (0x1 << 15));
+        __attribute__((always_inline)) Register& setTIMOUTEN(bool value) volatile {
+          raw = (raw & ~(0x1 << 15)) | ((((value)) << 15) & (0x1 << 15));
+          return *(Register*)this;
         }
         /**
           Gets Bus timeout B
           @return value in range 0..4095
         */
         __attribute__((always_inline)) unsigned long getTIMEOUTB() volatile {
-          return (raw & (0xFFF << 16)) >> 16;
+          return ((raw & (0xFFF << 16)) >> 16);
         }
         /**
           Sets Bus timeout B
-          @param value in range 0..4095
+          @param value value in range 0..4095
         */
-        __attribute__((always_inline)) unsigned long setTIMEOUTB(unsigned long value) volatile {
-          raw = (raw & ~(0xFFF << 16)) | ((value << 16) & (0xFFF << 16));
+        __attribute__((always_inline)) Register& setTIMEOUTB(unsigned long value) volatile {
+          raw = (raw & ~(0xFFF << 16)) | ((((value)) << 16) & (0xFFF << 16));
+          return *(Register*)this;
         }
         /**
           Gets Extended clock timeout enable
-          @return value in range 0..1
+          @return boolean value
         */
-        __attribute__((always_inline)) unsigned long getTEXTEN() volatile {
-          return (raw & (0x1 << 31)) >> 31;
+        __attribute__((always_inline)) bool getTEXTEN() volatile {
+          return ((raw & (0x1 << 31)) >> 31);
         }
         /**
           Sets Extended clock timeout enable
-          @param value in range 0..1
+          @param value boolean value
         */
-        __attribute__((always_inline)) unsigned long setTEXTEN(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 31)) | ((value << 31) & (0x1 << 31));
+        __attribute__((always_inline)) Register& setTEXTEN(bool value) volatile {
+          raw = (raw & ~(0x1 << 31)) | ((((value)) << 31) & (0x1 << 31));
+          return *(Register*)this;
         }
       };
-      
-      /**
-        Interrupt and Status register
-      */
-      class ISR {
+    };
+    
+    /**
+      Interrupt and Status register
+    */
+    namespace ISR {
+      class Register {
         volatile unsigned long raw;
         public:
         __attribute__((always_inline)) void operator= (unsigned long value) volatile {
@@ -813,251 +903,277 @@ namespace target {
         }
         __attribute__((always_inline)) operator unsigned long () volatile {
           return raw;
+        }
+        /**
+          Sets register to zero
+        */
+        __attribute__((always_inline)) Register& zero() volatile {
+          raw = 0;
+          return *(Register*)this;
         }
         /**
           Gets Address match code (Slave mode)
           @return value in range 0..127
         */
         __attribute__((always_inline)) unsigned long getADDCODE() volatile {
-          return (raw & (0x7F << 17)) >> 17;
+          return ((raw & (0x7F << 17)) >> 17);
         }
         /**
           Sets Address match code (Slave mode)
-          @param value in range 0..127
+          @param value value in range 0..127
         */
-        __attribute__((always_inline)) unsigned long setADDCODE(unsigned long value) volatile {
-          raw = (raw & ~(0x7F << 17)) | ((value << 17) & (0x7F << 17));
+        __attribute__((always_inline)) Register& setADDCODE(unsigned long value) volatile {
+          raw = (raw & ~(0x7F << 17)) | ((((value)) << 17) & (0x7F << 17));
+          return *(Register*)this;
         }
         /**
           Gets Transfer direction (Slave mode)
-          @return value in range 0..1
+          @return boolean value
         */
-        __attribute__((always_inline)) unsigned long getDIR() volatile {
-          return (raw & (0x1 << 16)) >> 16;
+        __attribute__((always_inline)) bool getDIR() volatile {
+          return ((raw & (0x1 << 16)) >> 16);
         }
         /**
           Sets Transfer direction (Slave mode)
-          @param value in range 0..1
+          @param value boolean value
         */
-        __attribute__((always_inline)) unsigned long setDIR(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 16)) | ((value << 16) & (0x1 << 16));
+        __attribute__((always_inline)) Register& setDIR(bool value) volatile {
+          raw = (raw & ~(0x1 << 16)) | ((((value)) << 16) & (0x1 << 16));
+          return *(Register*)this;
         }
         /**
           Gets Bus busy
-          @return value in range 0..1
+          @return boolean value
         */
-        __attribute__((always_inline)) unsigned long getBUSY() volatile {
-          return (raw & (0x1 << 15)) >> 15;
+        __attribute__((always_inline)) bool getBUSY() volatile {
+          return ((raw & (0x1 << 15)) >> 15);
         }
         /**
           Sets Bus busy
-          @param value in range 0..1
+          @param value boolean value
         */
-        __attribute__((always_inline)) unsigned long setBUSY(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 15)) | ((value << 15) & (0x1 << 15));
+        __attribute__((always_inline)) Register& setBUSY(bool value) volatile {
+          raw = (raw & ~(0x1 << 15)) | ((((value)) << 15) & (0x1 << 15));
+          return *(Register*)this;
         }
         /**
           Gets SMBus alert
-          @return value in range 0..1
+          @return boolean value
         */
-        __attribute__((always_inline)) unsigned long getALERT() volatile {
-          return (raw & (0x1 << 13)) >> 13;
+        __attribute__((always_inline)) bool getALERT() volatile {
+          return ((raw & (0x1 << 13)) >> 13);
         }
         /**
           Sets SMBus alert
-          @param value in range 0..1
+          @param value boolean value
         */
-        __attribute__((always_inline)) unsigned long setALERT(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 13)) | ((value << 13) & (0x1 << 13));
+        __attribute__((always_inline)) Register& setALERT(bool value) volatile {
+          raw = (raw & ~(0x1 << 13)) | ((((value)) << 13) & (0x1 << 13));
+          return *(Register*)this;
         }
         /**
           Gets Timeout or t_low detection flag
-          @return value in range 0..1
+          @return boolean value
         */
-        __attribute__((always_inline)) unsigned long getTIMEOUT() volatile {
-          return (raw & (0x1 << 12)) >> 12;
+        __attribute__((always_inline)) bool getTIMEOUT() volatile {
+          return ((raw & (0x1 << 12)) >> 12);
         }
         /**
           Sets Timeout or t_low detection flag
-          @param value in range 0..1
+          @param value boolean value
         */
-        __attribute__((always_inline)) unsigned long setTIMEOUT(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 12)) | ((value << 12) & (0x1 << 12));
+        __attribute__((always_inline)) Register& setTIMEOUT(bool value) volatile {
+          raw = (raw & ~(0x1 << 12)) | ((((value)) << 12) & (0x1 << 12));
+          return *(Register*)this;
         }
         /**
           Gets PEC Error in reception
-          @return value in range 0..1
+          @return boolean value
         */
-        __attribute__((always_inline)) unsigned long getPECERR() volatile {
-          return (raw & (0x1 << 11)) >> 11;
+        __attribute__((always_inline)) bool getPECERR() volatile {
+          return ((raw & (0x1 << 11)) >> 11);
         }
         /**
           Sets PEC Error in reception
-          @param value in range 0..1
+          @param value boolean value
         */
-        __attribute__((always_inline)) unsigned long setPECERR(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 11)) | ((value << 11) & (0x1 << 11));
+        __attribute__((always_inline)) Register& setPECERR(bool value) volatile {
+          raw = (raw & ~(0x1 << 11)) | ((((value)) << 11) & (0x1 << 11));
+          return *(Register*)this;
         }
         /**
           Gets Overrun/Underrun (slave mode)
-          @return value in range 0..1
+          @return boolean value
         */
-        __attribute__((always_inline)) unsigned long getOVR() volatile {
-          return (raw & (0x1 << 10)) >> 10;
+        __attribute__((always_inline)) bool getOVR() volatile {
+          return ((raw & (0x1 << 10)) >> 10);
         }
         /**
           Sets Overrun/Underrun (slave mode)
-          @param value in range 0..1
+          @param value boolean value
         */
-        __attribute__((always_inline)) unsigned long setOVR(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 10)) | ((value << 10) & (0x1 << 10));
+        __attribute__((always_inline)) Register& setOVR(bool value) volatile {
+          raw = (raw & ~(0x1 << 10)) | ((((value)) << 10) & (0x1 << 10));
+          return *(Register*)this;
         }
         /**
           Gets Arbitration lost
-          @return value in range 0..1
+          @return boolean value
         */
-        __attribute__((always_inline)) unsigned long getARLO() volatile {
-          return (raw & (0x1 << 9)) >> 9;
+        __attribute__((always_inline)) bool getARLO() volatile {
+          return ((raw & (0x1 << 9)) >> 9);
         }
         /**
           Sets Arbitration lost
-          @param value in range 0..1
+          @param value boolean value
         */
-        __attribute__((always_inline)) unsigned long setARLO(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 9)) | ((value << 9) & (0x1 << 9));
+        __attribute__((always_inline)) Register& setARLO(bool value) volatile {
+          raw = (raw & ~(0x1 << 9)) | ((((value)) << 9) & (0x1 << 9));
+          return *(Register*)this;
         }
         /**
           Gets Bus error
-          @return value in range 0..1
+          @return boolean value
         */
-        __attribute__((always_inline)) unsigned long getBERR() volatile {
-          return (raw & (0x1 << 8)) >> 8;
+        __attribute__((always_inline)) bool getBERR() volatile {
+          return ((raw & (0x1 << 8)) >> 8);
         }
         /**
           Sets Bus error
-          @param value in range 0..1
+          @param value boolean value
         */
-        __attribute__((always_inline)) unsigned long setBERR(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 8)) | ((value << 8) & (0x1 << 8));
+        __attribute__((always_inline)) Register& setBERR(bool value) volatile {
+          raw = (raw & ~(0x1 << 8)) | ((((value)) << 8) & (0x1 << 8));
+          return *(Register*)this;
         }
         /**
           Gets Transfer Complete Reload
-          @return value in range 0..1
+          @return boolean value
         */
-        __attribute__((always_inline)) unsigned long getTCR() volatile {
-          return (raw & (0x1 << 7)) >> 7;
+        __attribute__((always_inline)) bool getTCR() volatile {
+          return ((raw & (0x1 << 7)) >> 7);
         }
         /**
           Sets Transfer Complete Reload
-          @param value in range 0..1
+          @param value boolean value
         */
-        __attribute__((always_inline)) unsigned long setTCR(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 7)) | ((value << 7) & (0x1 << 7));
+        __attribute__((always_inline)) Register& setTCR(bool value) volatile {
+          raw = (raw & ~(0x1 << 7)) | ((((value)) << 7) & (0x1 << 7));
+          return *(Register*)this;
         }
         /**
           Gets Transfer Complete (master mode)
-          @return value in range 0..1
+          @return boolean value
         */
-        __attribute__((always_inline)) unsigned long getTC() volatile {
-          return (raw & (0x1 << 6)) >> 6;
+        __attribute__((always_inline)) bool getTC() volatile {
+          return ((raw & (0x1 << 6)) >> 6);
         }
         /**
           Sets Transfer Complete (master mode)
-          @param value in range 0..1
+          @param value boolean value
         */
-        __attribute__((always_inline)) unsigned long setTC(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 6)) | ((value << 6) & (0x1 << 6));
+        __attribute__((always_inline)) Register& setTC(bool value) volatile {
+          raw = (raw & ~(0x1 << 6)) | ((((value)) << 6) & (0x1 << 6));
+          return *(Register*)this;
         }
         /**
           Gets Stop detection flag
-          @return value in range 0..1
+          @return boolean value
         */
-        __attribute__((always_inline)) unsigned long getSTOPF() volatile {
-          return (raw & (0x1 << 5)) >> 5;
+        __attribute__((always_inline)) bool getSTOPF() volatile {
+          return ((raw & (0x1 << 5)) >> 5);
         }
         /**
           Sets Stop detection flag
-          @param value in range 0..1
+          @param value boolean value
         */
-        __attribute__((always_inline)) unsigned long setSTOPF(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 5)) | ((value << 5) & (0x1 << 5));
+        __attribute__((always_inline)) Register& setSTOPF(bool value) volatile {
+          raw = (raw & ~(0x1 << 5)) | ((((value)) << 5) & (0x1 << 5));
+          return *(Register*)this;
         }
         /**
           Gets Not acknowledge received flag
-          @return value in range 0..1
+          @return boolean value
         */
-        __attribute__((always_inline)) unsigned long getNACKF() volatile {
-          return (raw & (0x1 << 4)) >> 4;
+        __attribute__((always_inline)) bool getNACKF() volatile {
+          return ((raw & (0x1 << 4)) >> 4);
         }
         /**
           Sets Not acknowledge received flag
-          @param value in range 0..1
+          @param value boolean value
         */
-        __attribute__((always_inline)) unsigned long setNACKF(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 4)) | ((value << 4) & (0x1 << 4));
+        __attribute__((always_inline)) Register& setNACKF(bool value) volatile {
+          raw = (raw & ~(0x1 << 4)) | ((((value)) << 4) & (0x1 << 4));
+          return *(Register*)this;
         }
         /**
           Gets Address matched (slave mode)
-          @return value in range 0..1
+          @return boolean value
         */
-        __attribute__((always_inline)) unsigned long getADDR() volatile {
-          return (raw & (0x1 << 3)) >> 3;
+        __attribute__((always_inline)) bool getADDR() volatile {
+          return ((raw & (0x1 << 3)) >> 3);
         }
         /**
           Sets Address matched (slave mode)
-          @param value in range 0..1
+          @param value boolean value
         */
-        __attribute__((always_inline)) unsigned long setADDR(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 3)) | ((value << 3) & (0x1 << 3));
+        __attribute__((always_inline)) Register& setADDR(bool value) volatile {
+          raw = (raw & ~(0x1 << 3)) | ((((value)) << 3) & (0x1 << 3));
+          return *(Register*)this;
         }
         /**
           Gets Receive data register not empty (receivers)
-          @return value in range 0..1
+          @return boolean value
         */
-        __attribute__((always_inline)) unsigned long getRXNE() volatile {
-          return (raw & (0x1 << 2)) >> 2;
+        __attribute__((always_inline)) bool getRXNE() volatile {
+          return ((raw & (0x1 << 2)) >> 2);
         }
         /**
           Sets Receive data register not empty (receivers)
-          @param value in range 0..1
+          @param value boolean value
         */
-        __attribute__((always_inline)) unsigned long setRXNE(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 2)) | ((value << 2) & (0x1 << 2));
+        __attribute__((always_inline)) Register& setRXNE(bool value) volatile {
+          raw = (raw & ~(0x1 << 2)) | ((((value)) << 2) & (0x1 << 2));
+          return *(Register*)this;
         }
         /**
           Gets Transmit interrupt status (transmitters)
-          @return value in range 0..1
+          @return boolean value
         */
-        __attribute__((always_inline)) unsigned long getTXIS() volatile {
-          return (raw & (0x1 << 1)) >> 1;
+        __attribute__((always_inline)) bool getTXIS() volatile {
+          return ((raw & (0x1 << 1)) >> 1);
         }
         /**
           Sets Transmit interrupt status (transmitters)
-          @param value in range 0..1
+          @param value boolean value
         */
-        __attribute__((always_inline)) unsigned long setTXIS(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 1)) | ((value << 1) & (0x1 << 1));
+        __attribute__((always_inline)) Register& setTXIS(bool value) volatile {
+          raw = (raw & ~(0x1 << 1)) | ((((value)) << 1) & (0x1 << 1));
+          return *(Register*)this;
         }
         /**
           Gets Transmit data register empty (transmitters)
-          @return value in range 0..1
+          @return boolean value
         */
-        __attribute__((always_inline)) unsigned long getTXE() volatile {
-          return (raw & (0x1 << 0)) >> 0;
+        __attribute__((always_inline)) bool getTXE() volatile {
+          return ((raw & (0x1 << 0)) >> 0);
         }
         /**
           Sets Transmit data register empty (transmitters)
-          @param value in range 0..1
+          @param value boolean value
         */
-        __attribute__((always_inline)) unsigned long setTXE(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 0)) | ((value << 0) & (0x1 << 0));
+        __attribute__((always_inline)) Register& setTXE(bool value) volatile {
+          raw = (raw & ~(0x1 << 0)) | ((((value)) << 0) & (0x1 << 0));
+          return *(Register*)this;
         }
       };
-      
-      /**
-        Interrupt clear register
-      */
-      class ICR {
+    };
+    
+    /**
+      Interrupt clear register
+    */
+    namespace ICR {
+      class Register {
         volatile unsigned long raw;
         public:
         __attribute__((always_inline)) void operator= (unsigned long value) volatile {
@@ -1065,139 +1181,157 @@ namespace target {
         }
         __attribute__((always_inline)) operator unsigned long () volatile {
           return raw;
+        }
+        /**
+          Sets register to zero
+        */
+        __attribute__((always_inline)) Register& zero() volatile {
+          raw = 0;
+          return *(Register*)this;
         }
         /**
           Gets Alert flag clear
-          @return value in range 0..1
+          @return boolean value
         */
-        __attribute__((always_inline)) unsigned long getALERTCF() volatile {
-          return (raw & (0x1 << 13)) >> 13;
+        __attribute__((always_inline)) bool getALERTCF() volatile {
+          return ((raw & (0x1 << 13)) >> 13);
         }
         /**
           Sets Alert flag clear
-          @param value in range 0..1
+          @param value boolean value
         */
-        __attribute__((always_inline)) unsigned long setALERTCF(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 13)) | ((value << 13) & (0x1 << 13));
+        __attribute__((always_inline)) Register& setALERTCF(bool value) volatile {
+          raw = (raw & ~(0x1 << 13)) | ((((value)) << 13) & (0x1 << 13));
+          return *(Register*)this;
         }
         /**
           Gets Timeout detection flag clear
-          @return value in range 0..1
+          @return boolean value
         */
-        __attribute__((always_inline)) unsigned long getTIMOUTCF() volatile {
-          return (raw & (0x1 << 12)) >> 12;
+        __attribute__((always_inline)) bool getTIMOUTCF() volatile {
+          return ((raw & (0x1 << 12)) >> 12);
         }
         /**
           Sets Timeout detection flag clear
-          @param value in range 0..1
+          @param value boolean value
         */
-        __attribute__((always_inline)) unsigned long setTIMOUTCF(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 12)) | ((value << 12) & (0x1 << 12));
+        __attribute__((always_inline)) Register& setTIMOUTCF(bool value) volatile {
+          raw = (raw & ~(0x1 << 12)) | ((((value)) << 12) & (0x1 << 12));
+          return *(Register*)this;
         }
         /**
           Gets PEC Error flag clear
-          @return value in range 0..1
+          @return boolean value
         */
-        __attribute__((always_inline)) unsigned long getPECCF() volatile {
-          return (raw & (0x1 << 11)) >> 11;
+        __attribute__((always_inline)) bool getPECCF() volatile {
+          return ((raw & (0x1 << 11)) >> 11);
         }
         /**
           Sets PEC Error flag clear
-          @param value in range 0..1
+          @param value boolean value
         */
-        __attribute__((always_inline)) unsigned long setPECCF(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 11)) | ((value << 11) & (0x1 << 11));
+        __attribute__((always_inline)) Register& setPECCF(bool value) volatile {
+          raw = (raw & ~(0x1 << 11)) | ((((value)) << 11) & (0x1 << 11));
+          return *(Register*)this;
         }
         /**
           Gets Overrun/Underrun flag clear
-          @return value in range 0..1
+          @return boolean value
         */
-        __attribute__((always_inline)) unsigned long getOVRCF() volatile {
-          return (raw & (0x1 << 10)) >> 10;
+        __attribute__((always_inline)) bool getOVRCF() volatile {
+          return ((raw & (0x1 << 10)) >> 10);
         }
         /**
           Sets Overrun/Underrun flag clear
-          @param value in range 0..1
+          @param value boolean value
         */
-        __attribute__((always_inline)) unsigned long setOVRCF(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 10)) | ((value << 10) & (0x1 << 10));
+        __attribute__((always_inline)) Register& setOVRCF(bool value) volatile {
+          raw = (raw & ~(0x1 << 10)) | ((((value)) << 10) & (0x1 << 10));
+          return *(Register*)this;
         }
         /**
           Gets Arbitration lost flag clear
-          @return value in range 0..1
+          @return boolean value
         */
-        __attribute__((always_inline)) unsigned long getARLOCF() volatile {
-          return (raw & (0x1 << 9)) >> 9;
+        __attribute__((always_inline)) bool getARLOCF() volatile {
+          return ((raw & (0x1 << 9)) >> 9);
         }
         /**
           Sets Arbitration lost flag clear
-          @param value in range 0..1
+          @param value boolean value
         */
-        __attribute__((always_inline)) unsigned long setARLOCF(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 9)) | ((value << 9) & (0x1 << 9));
+        __attribute__((always_inline)) Register& setARLOCF(bool value) volatile {
+          raw = (raw & ~(0x1 << 9)) | ((((value)) << 9) & (0x1 << 9));
+          return *(Register*)this;
         }
         /**
           Gets Bus error flag clear
-          @return value in range 0..1
+          @return boolean value
         */
-        __attribute__((always_inline)) unsigned long getBERRCF() volatile {
-          return (raw & (0x1 << 8)) >> 8;
+        __attribute__((always_inline)) bool getBERRCF() volatile {
+          return ((raw & (0x1 << 8)) >> 8);
         }
         /**
           Sets Bus error flag clear
-          @param value in range 0..1
+          @param value boolean value
         */
-        __attribute__((always_inline)) unsigned long setBERRCF(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 8)) | ((value << 8) & (0x1 << 8));
+        __attribute__((always_inline)) Register& setBERRCF(bool value) volatile {
+          raw = (raw & ~(0x1 << 8)) | ((((value)) << 8) & (0x1 << 8));
+          return *(Register*)this;
         }
         /**
           Gets Stop detection flag clear
-          @return value in range 0..1
+          @return boolean value
         */
-        __attribute__((always_inline)) unsigned long getSTOPCF() volatile {
-          return (raw & (0x1 << 5)) >> 5;
+        __attribute__((always_inline)) bool getSTOPCF() volatile {
+          return ((raw & (0x1 << 5)) >> 5);
         }
         /**
           Sets Stop detection flag clear
-          @param value in range 0..1
+          @param value boolean value
         */
-        __attribute__((always_inline)) unsigned long setSTOPCF(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 5)) | ((value << 5) & (0x1 << 5));
+        __attribute__((always_inline)) Register& setSTOPCF(bool value) volatile {
+          raw = (raw & ~(0x1 << 5)) | ((((value)) << 5) & (0x1 << 5));
+          return *(Register*)this;
         }
         /**
           Gets Not Acknowledge flag clear
-          @return value in range 0..1
+          @return boolean value
         */
-        __attribute__((always_inline)) unsigned long getNACKCF() volatile {
-          return (raw & (0x1 << 4)) >> 4;
+        __attribute__((always_inline)) bool getNACKCF() volatile {
+          return ((raw & (0x1 << 4)) >> 4);
         }
         /**
           Sets Not Acknowledge flag clear
-          @param value in range 0..1
+          @param value boolean value
         */
-        __attribute__((always_inline)) unsigned long setNACKCF(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 4)) | ((value << 4) & (0x1 << 4));
+        __attribute__((always_inline)) Register& setNACKCF(bool value) volatile {
+          raw = (raw & ~(0x1 << 4)) | ((((value)) << 4) & (0x1 << 4));
+          return *(Register*)this;
         }
         /**
           Gets Address Matched flag clear
-          @return value in range 0..1
+          @return boolean value
         */
-        __attribute__((always_inline)) unsigned long getADDRCF() volatile {
-          return (raw & (0x1 << 3)) >> 3;
+        __attribute__((always_inline)) bool getADDRCF() volatile {
+          return ((raw & (0x1 << 3)) >> 3);
         }
         /**
           Sets Address Matched flag clear
-          @param value in range 0..1
+          @param value boolean value
         */
-        __attribute__((always_inline)) unsigned long setADDRCF(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 3)) | ((value << 3) & (0x1 << 3));
+        __attribute__((always_inline)) Register& setADDRCF(bool value) volatile {
+          raw = (raw & ~(0x1 << 3)) | ((((value)) << 3) & (0x1 << 3));
+          return *(Register*)this;
         }
       };
-      
-      /**
-        PEC register
-      */
-      class PECR {
+    };
+    
+    /**
+      PEC register
+    */
+    namespace PECR {
+      class Register {
         volatile unsigned long raw;
         public:
         __attribute__((always_inline)) void operator= (unsigned long value) volatile {
@@ -1205,27 +1339,37 @@ namespace target {
         }
         __attribute__((always_inline)) operator unsigned long () volatile {
           return raw;
+        }
+        /**
+          Sets register to zero
+        */
+        __attribute__((always_inline)) Register& zero() volatile {
+          raw = 0;
+          return *(Register*)this;
         }
         /**
           Gets Packet error checking register
           @return value in range 0..255
         */
         __attribute__((always_inline)) unsigned long getPEC() volatile {
-          return (raw & (0xFF << 0)) >> 0;
+          return ((raw & (0xFF << 0)) >> 0);
         }
         /**
           Sets Packet error checking register
-          @param value in range 0..255
+          @param value value in range 0..255
         */
-        __attribute__((always_inline)) unsigned long setPEC(unsigned long value) volatile {
-          raw = (raw & ~(0xFF << 0)) | ((value << 0) & (0xFF << 0));
+        __attribute__((always_inline)) Register& setPEC(unsigned long value) volatile {
+          raw = (raw & ~(0xFF << 0)) | ((((value)) << 0) & (0xFF << 0));
+          return *(Register*)this;
         }
       };
-      
-      /**
-        Receive data register
-      */
-      class RXDR {
+    };
+    
+    /**
+      Receive data register
+    */
+    namespace RXDR {
+      class Register {
         volatile unsigned long raw;
         public:
         __attribute__((always_inline)) void operator= (unsigned long value) volatile {
@@ -1233,27 +1377,37 @@ namespace target {
         }
         __attribute__((always_inline)) operator unsigned long () volatile {
           return raw;
+        }
+        /**
+          Sets register to zero
+        */
+        __attribute__((always_inline)) Register& zero() volatile {
+          raw = 0;
+          return *(Register*)this;
         }
         /**
           Gets 8-bit receive data
           @return value in range 0..255
         */
         __attribute__((always_inline)) unsigned long getRXDATA() volatile {
-          return (raw & (0xFF << 0)) >> 0;
+          return ((raw & (0xFF << 0)) >> 0);
         }
         /**
           Sets 8-bit receive data
-          @param value in range 0..255
+          @param value value in range 0..255
         */
-        __attribute__((always_inline)) unsigned long setRXDATA(unsigned long value) volatile {
-          raw = (raw & ~(0xFF << 0)) | ((value << 0) & (0xFF << 0));
+        __attribute__((always_inline)) Register& setRXDATA(unsigned long value) volatile {
+          raw = (raw & ~(0xFF << 0)) | ((((value)) << 0) & (0xFF << 0));
+          return *(Register*)this;
         }
       };
-      
-      /**
-        Transmit data register
-      */
-      class TXDR {
+    };
+    
+    /**
+      Transmit data register
+    */
+    namespace TXDR {
+      class Register {
         volatile unsigned long raw;
         public:
         __attribute__((always_inline)) void operator= (unsigned long value) volatile {
@@ -1263,18 +1417,26 @@ namespace target {
           return raw;
         }
         /**
+          Sets register to zero
+        */
+        __attribute__((always_inline)) Register& zero() volatile {
+          raw = 0;
+          return *(Register*)this;
+        }
+        /**
           Gets 8-bit transmit data
           @return value in range 0..255
         */
         __attribute__((always_inline)) unsigned long getTXDATA() volatile {
-          return (raw & (0xFF << 0)) >> 0;
+          return ((raw & (0xFF << 0)) >> 0);
         }
         /**
           Sets 8-bit transmit data
-          @param value in range 0..255
+          @param value value in range 0..255
         */
-        __attribute__((always_inline)) unsigned long setTXDATA(unsigned long value) volatile {
-          raw = (raw & ~(0xFF << 0)) | ((value << 0) & (0xFF << 0));
+        __attribute__((always_inline)) Register& setTXDATA(unsigned long value) volatile {
+          raw = (raw & ~(0xFF << 0)) | ((((value)) << 0) & (0xFF << 0));
+          return *(Register*)this;
         }
       };
     };
@@ -1285,82 +1447,82 @@ namespace target {
           /**
             Control register 1
           */
-          volatile reg::CR1 CR1;
+          CR1::Register CR1;
         };
         struct {
-          volatile char _space_CR2[0x4];
+          char _space_CR2[0x4];
           /**
             Control register 2
           */
-          volatile reg::CR2 CR2;
+          CR2::Register CR2;
         };
         struct {
-          volatile char _space_OAR1[0x8];
+          char _space_OAR1[0x8];
           /**
             Own address register 1
           */
-          volatile reg::OAR1 OAR1;
+          OAR1::Register OAR1;
         };
         struct {
-          volatile char _space_OAR2[0xc];
+          char _space_OAR2[0xc];
           /**
             Own address register 2
           */
-          volatile reg::OAR2 OAR2;
+          OAR2::Register OAR2;
         };
         struct {
-          volatile char _space_TIMINGR[0x10];
+          char _space_TIMINGR[0x10];
           /**
             Timing register
           */
-          volatile reg::TIMINGR TIMINGR;
+          TIMINGR::Register TIMINGR;
         };
         struct {
-          volatile char _space_TIMEOUTR[0x14];
+          char _space_TIMEOUTR[0x14];
           /**
             Status register 1
           */
-          volatile reg::TIMEOUTR TIMEOUTR;
+          TIMEOUTR::Register TIMEOUTR;
         };
         struct {
-          volatile char _space_ISR[0x18];
+          char _space_ISR[0x18];
           /**
             Interrupt and Status register
           */
-          volatile reg::ISR ISR;
+          ISR::Register ISR;
         };
         struct {
-          volatile char _space_ICR[0x1c];
+          char _space_ICR[0x1c];
           /**
             Interrupt clear register
           */
-          volatile reg::ICR ICR;
+          ICR::Register ICR;
         };
         struct {
-          volatile char _space_PECR[0x20];
+          char _space_PECR[0x20];
           /**
             PEC register
           */
-          volatile reg::PECR PECR;
+          PECR::Register PECR;
         };
         struct {
-          volatile char _space_RXDR[0x24];
+          char _space_RXDR[0x24];
           /**
             Receive data register
           */
-          volatile reg::RXDR RXDR;
+          RXDR::Register RXDR;
         };
         struct {
-          volatile char _space_TXDR[0x28];
+          char _space_TXDR[0x28];
           /**
             Transmit data register
           */
-          volatile reg::TXDR TXDR;
+          TXDR::Register TXDR;
         };
       };
     };
   }
   
-  extern i2c::Peripheral I2C1;
-  extern i2c::Peripheral I2C2;
+  extern volatile i2c::Peripheral I2C1;
+  extern volatile i2c::Peripheral I2C2;
 }

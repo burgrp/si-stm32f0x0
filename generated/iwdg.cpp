@@ -1,11 +1,11 @@
 namespace target {
   namespace iwdg {
-    namespace reg {
-      
-      /**
-        Key register
-      */
-      class KR {
+    
+    /**
+      Key register
+    */
+    namespace KR {
+      class Register {
         volatile unsigned long raw;
         public:
         __attribute__((always_inline)) void operator= (unsigned long value) volatile {
@@ -13,27 +13,37 @@ namespace target {
         }
         __attribute__((always_inline)) operator unsigned long () volatile {
           return raw;
+        }
+        /**
+          Sets register to zero
+        */
+        __attribute__((always_inline)) Register& zero() volatile {
+          raw = 0;
+          return *(Register*)this;
         }
         /**
           Gets Key value
           @return value in range 0..65535
         */
         __attribute__((always_inline)) unsigned long getKEY() volatile {
-          return (raw & (0xFFFF << 0)) >> 0;
+          return ((raw & (0xFFFF << 0)) >> 0);
         }
         /**
           Sets Key value
-          @param value in range 0..65535
+          @param value value in range 0..65535
         */
-        __attribute__((always_inline)) unsigned long setKEY(unsigned long value) volatile {
-          raw = (raw & ~(0xFFFF << 0)) | ((value << 0) & (0xFFFF << 0));
+        __attribute__((always_inline)) Register& setKEY(unsigned long value) volatile {
+          raw = (raw & ~(0xFFFF << 0)) | ((((value)) << 0) & (0xFFFF << 0));
+          return *(Register*)this;
         }
       };
-      
-      /**
-        Prescaler register
-      */
-      class PR {
+    };
+    
+    /**
+      Prescaler register
+    */
+    namespace PR {
+      class Register {
         volatile unsigned long raw;
         public:
         __attribute__((always_inline)) void operator= (unsigned long value) volatile {
@@ -41,27 +51,37 @@ namespace target {
         }
         __attribute__((always_inline)) operator unsigned long () volatile {
           return raw;
+        }
+        /**
+          Sets register to zero
+        */
+        __attribute__((always_inline)) Register& zero() volatile {
+          raw = 0;
+          return *(Register*)this;
         }
         /**
           Gets Prescaler divider
           @return value in range 0..7
         */
         __attribute__((always_inline)) unsigned long getPR() volatile {
-          return (raw & (0x7 << 0)) >> 0;
+          return ((raw & (0x7 << 0)) >> 0);
         }
         /**
           Sets Prescaler divider
-          @param value in range 0..7
+          @param value value in range 0..7
         */
-        __attribute__((always_inline)) unsigned long setPR(unsigned long value) volatile {
-          raw = (raw & ~(0x7 << 0)) | ((value << 0) & (0x7 << 0));
+        __attribute__((always_inline)) Register& setPR(unsigned long value) volatile {
+          raw = (raw & ~(0x7 << 0)) | ((((value)) << 0) & (0x7 << 0));
+          return *(Register*)this;
         }
       };
-      
-      /**
-        Reload register
-      */
-      class RLR {
+    };
+    
+    /**
+      Reload register
+    */
+    namespace RLR {
+      class Register {
         volatile unsigned long raw;
         public:
         __attribute__((always_inline)) void operator= (unsigned long value) volatile {
@@ -69,27 +89,37 @@ namespace target {
         }
         __attribute__((always_inline)) operator unsigned long () volatile {
           return raw;
+        }
+        /**
+          Sets register to zero
+        */
+        __attribute__((always_inline)) Register& zero() volatile {
+          raw = 0;
+          return *(Register*)this;
         }
         /**
           Gets Watchdog counter reload value
           @return value in range 0..4095
         */
         __attribute__((always_inline)) unsigned long getRL() volatile {
-          return (raw & (0xFFF << 0)) >> 0;
+          return ((raw & (0xFFF << 0)) >> 0);
         }
         /**
           Sets Watchdog counter reload value
-          @param value in range 0..4095
+          @param value value in range 0..4095
         */
-        __attribute__((always_inline)) unsigned long setRL(unsigned long value) volatile {
-          raw = (raw & ~(0xFFF << 0)) | ((value << 0) & (0xFFF << 0));
+        __attribute__((always_inline)) Register& setRL(unsigned long value) volatile {
+          raw = (raw & ~(0xFFF << 0)) | ((((value)) << 0) & (0xFFF << 0));
+          return *(Register*)this;
         }
       };
-      
-      /**
-        Status register
-      */
-      class SR {
+    };
+    
+    /**
+      Status register
+    */
+    namespace SR {
+      class Register {
         volatile unsigned long raw;
         public:
         __attribute__((always_inline)) void operator= (unsigned long value) volatile {
@@ -97,55 +127,67 @@ namespace target {
         }
         __attribute__((always_inline)) operator unsigned long () volatile {
           return raw;
+        }
+        /**
+          Sets register to zero
+        */
+        __attribute__((always_inline)) Register& zero() volatile {
+          raw = 0;
+          return *(Register*)this;
         }
         /**
           Gets Watchdog prescaler value update
-          @return value in range 0..1
+          @return boolean value
         */
-        __attribute__((always_inline)) unsigned long getPVU() volatile {
-          return (raw & (0x1 << 0)) >> 0;
+        __attribute__((always_inline)) bool getPVU() volatile {
+          return ((raw & (0x1 << 0)) >> 0);
         }
         /**
           Sets Watchdog prescaler value update
-          @param value in range 0..1
+          @param value boolean value
         */
-        __attribute__((always_inline)) unsigned long setPVU(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 0)) | ((value << 0) & (0x1 << 0));
+        __attribute__((always_inline)) Register& setPVU(bool value) volatile {
+          raw = (raw & ~(0x1 << 0)) | ((((value)) << 0) & (0x1 << 0));
+          return *(Register*)this;
         }
         /**
           Gets Watchdog counter reload value update
-          @return value in range 0..1
+          @return boolean value
         */
-        __attribute__((always_inline)) unsigned long getRVU() volatile {
-          return (raw & (0x1 << 1)) >> 1;
+        __attribute__((always_inline)) bool getRVU() volatile {
+          return ((raw & (0x1 << 1)) >> 1);
         }
         /**
           Sets Watchdog counter reload value update
-          @param value in range 0..1
+          @param value boolean value
         */
-        __attribute__((always_inline)) unsigned long setRVU(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 1)) | ((value << 1) & (0x1 << 1));
+        __attribute__((always_inline)) Register& setRVU(bool value) volatile {
+          raw = (raw & ~(0x1 << 1)) | ((((value)) << 1) & (0x1 << 1));
+          return *(Register*)this;
         }
         /**
           Gets Watchdog counter window value update
-          @return value in range 0..1
+          @return boolean value
         */
-        __attribute__((always_inline)) unsigned long getWVU() volatile {
-          return (raw & (0x1 << 2)) >> 2;
+        __attribute__((always_inline)) bool getWVU() volatile {
+          return ((raw & (0x1 << 2)) >> 2);
         }
         /**
           Sets Watchdog counter window value update
-          @param value in range 0..1
+          @param value boolean value
         */
-        __attribute__((always_inline)) unsigned long setWVU(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 2)) | ((value << 2) & (0x1 << 2));
+        __attribute__((always_inline)) Register& setWVU(bool value) volatile {
+          raw = (raw & ~(0x1 << 2)) | ((((value)) << 2) & (0x1 << 2));
+          return *(Register*)this;
         }
       };
-      
-      /**
-        Window register
-      */
-      class WINR {
+    };
+    
+    /**
+      Window register
+    */
+    namespace WINR {
+      class Register {
         volatile unsigned long raw;
         public:
         __attribute__((always_inline)) void operator= (unsigned long value) volatile {
@@ -153,20 +195,28 @@ namespace target {
         }
         __attribute__((always_inline)) operator unsigned long () volatile {
           return raw;
+        }
+        /**
+          Sets register to zero
+        */
+        __attribute__((always_inline)) Register& zero() volatile {
+          raw = 0;
+          return *(Register*)this;
         }
         /**
           Gets Watchdog counter window value
           @return value in range 0..4095
         */
         __attribute__((always_inline)) unsigned long getWIN() volatile {
-          return (raw & (0xFFF << 0)) >> 0;
+          return ((raw & (0xFFF << 0)) >> 0);
         }
         /**
           Sets Watchdog counter window value
-          @param value in range 0..4095
+          @param value value in range 0..4095
         */
-        __attribute__((always_inline)) unsigned long setWIN(unsigned long value) volatile {
-          raw = (raw & ~(0xFFF << 0)) | ((value << 0) & (0xFFF << 0));
+        __attribute__((always_inline)) Register& setWIN(unsigned long value) volatile {
+          raw = (raw & ~(0xFFF << 0)) | ((((value)) << 0) & (0xFFF << 0));
+          return *(Register*)this;
         }
       };
     };
@@ -177,39 +227,39 @@ namespace target {
           /**
             Key register
           */
-          volatile reg::KR KR;
+          KR::Register KR;
         };
         struct {
-          volatile char _space_PR[0x4];
+          char _space_PR[0x4];
           /**
             Prescaler register
           */
-          volatile reg::PR PR;
+          PR::Register PR;
         };
         struct {
-          volatile char _space_RLR[0x8];
+          char _space_RLR[0x8];
           /**
             Reload register
           */
-          volatile reg::RLR RLR;
+          RLR::Register RLR;
         };
         struct {
-          volatile char _space_SR[0xc];
+          char _space_SR[0xc];
           /**
             Status register
           */
-          volatile reg::SR SR;
+          SR::Register SR;
         };
         struct {
-          volatile char _space_WINR[0x10];
+          char _space_WINR[0x10];
           /**
             Window register
           */
-          volatile reg::WINR WINR;
+          WINR::Register WINR;
         };
       };
     };
   }
   
-  extern iwdg::Peripheral IWDG;
+  extern volatile iwdg::Peripheral IWDG;
 }

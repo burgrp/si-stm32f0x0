@@ -1,11 +1,11 @@
 namespace target {
   namespace flash {
-    namespace reg {
-      
-      /**
-        Flash access control register
-      */
-      class ACR {
+    
+    /**
+      Flash access control register
+    */
+    namespace ACR {
+      class Register {
         volatile unsigned long raw;
         public:
         __attribute__((always_inline)) void operator= (unsigned long value) volatile {
@@ -13,55 +13,67 @@ namespace target {
         }
         __attribute__((always_inline)) operator unsigned long () volatile {
           return raw;
+        }
+        /**
+          Sets register to zero
+        */
+        __attribute__((always_inline)) Register& zero() volatile {
+          raw = 0;
+          return *(Register*)this;
         }
         /**
           Gets LATENCY
           @return value in range 0..7
         */
         __attribute__((always_inline)) unsigned long getLATENCY() volatile {
-          return (raw & (0x7 << 0)) >> 0;
+          return ((raw & (0x7 << 0)) >> 0);
         }
         /**
           Sets LATENCY
-          @param value in range 0..7
+          @param value value in range 0..7
         */
-        __attribute__((always_inline)) unsigned long setLATENCY(unsigned long value) volatile {
-          raw = (raw & ~(0x7 << 0)) | ((value << 0) & (0x7 << 0));
+        __attribute__((always_inline)) Register& setLATENCY(unsigned long value) volatile {
+          raw = (raw & ~(0x7 << 0)) | ((((value)) << 0) & (0x7 << 0));
+          return *(Register*)this;
         }
         /**
           Gets PRFTBE
-          @return value in range 0..1
+          @return boolean value
         */
-        __attribute__((always_inline)) unsigned long getPRFTBE() volatile {
-          return (raw & (0x1 << 4)) >> 4;
+        __attribute__((always_inline)) bool getPRFTBE() volatile {
+          return ((raw & (0x1 << 4)) >> 4);
         }
         /**
           Sets PRFTBE
-          @param value in range 0..1
+          @param value boolean value
         */
-        __attribute__((always_inline)) unsigned long setPRFTBE(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 4)) | ((value << 4) & (0x1 << 4));
+        __attribute__((always_inline)) Register& setPRFTBE(bool value) volatile {
+          raw = (raw & ~(0x1 << 4)) | ((((value)) << 4) & (0x1 << 4));
+          return *(Register*)this;
         }
         /**
           Gets PRFTBS
-          @return value in range 0..1
+          @return boolean value
         */
-        __attribute__((always_inline)) unsigned long getPRFTBS() volatile {
-          return (raw & (0x1 << 5)) >> 5;
+        __attribute__((always_inline)) bool getPRFTBS() volatile {
+          return ((raw & (0x1 << 5)) >> 5);
         }
         /**
           Sets PRFTBS
-          @param value in range 0..1
+          @param value boolean value
         */
-        __attribute__((always_inline)) unsigned long setPRFTBS(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 5)) | ((value << 5) & (0x1 << 5));
+        __attribute__((always_inline)) Register& setPRFTBS(bool value) volatile {
+          raw = (raw & ~(0x1 << 5)) | ((((value)) << 5) & (0x1 << 5));
+          return *(Register*)this;
         }
       };
-      
-      /**
-        Flash key register
-      */
-      class KEYR {
+    };
+    
+    /**
+      Flash key register
+    */
+    namespace KEYR {
+      class Register {
         volatile unsigned long raw;
         public:
         __attribute__((always_inline)) void operator= (unsigned long value) volatile {
@@ -69,27 +81,37 @@ namespace target {
         }
         __attribute__((always_inline)) operator unsigned long () volatile {
           return raw;
+        }
+        /**
+          Sets register to zero
+        */
+        __attribute__((always_inline)) Register& zero() volatile {
+          raw = 0;
+          return *(Register*)this;
         }
         /**
           Gets Flash Key
           @return value in range 0..4294967295
         */
         __attribute__((always_inline)) unsigned long getFKEYR() volatile {
-          return (raw & (0xFFFFFFFF << 0)) >> 0;
+          return ((raw & (0xFFFFFFFF << 0)) >> 0);
         }
         /**
           Sets Flash Key
-          @param value in range 0..4294967295
+          @param value value in range 0..4294967295
         */
-        __attribute__((always_inline)) unsigned long setFKEYR(unsigned long value) volatile {
-          raw = (raw & ~(0xFFFFFFFF << 0)) | ((value << 0) & (0xFFFFFFFF << 0));
+        __attribute__((always_inline)) Register& setFKEYR(unsigned long value) volatile {
+          raw = (raw & ~(0xFFFFFFFF << 0)) | ((((value)) << 0) & (0xFFFFFFFF << 0));
+          return *(Register*)this;
         }
       };
-      
-      /**
-        Flash option key register
-      */
-      class OPTKEYR {
+    };
+    
+    /**
+      Flash option key register
+    */
+    namespace OPTKEYR {
+      class Register {
         volatile unsigned long raw;
         public:
         __attribute__((always_inline)) void operator= (unsigned long value) volatile {
@@ -97,27 +119,37 @@ namespace target {
         }
         __attribute__((always_inline)) operator unsigned long () volatile {
           return raw;
+        }
+        /**
+          Sets register to zero
+        */
+        __attribute__((always_inline)) Register& zero() volatile {
+          raw = 0;
+          return *(Register*)this;
         }
         /**
           Gets Option byte key
           @return value in range 0..4294967295
         */
         __attribute__((always_inline)) unsigned long getOPTKEYR() volatile {
-          return (raw & (0xFFFFFFFF << 0)) >> 0;
+          return ((raw & (0xFFFFFFFF << 0)) >> 0);
         }
         /**
           Sets Option byte key
-          @param value in range 0..4294967295
+          @param value value in range 0..4294967295
         */
-        __attribute__((always_inline)) unsigned long setOPTKEYR(unsigned long value) volatile {
-          raw = (raw & ~(0xFFFFFFFF << 0)) | ((value << 0) & (0xFFFFFFFF << 0));
+        __attribute__((always_inline)) Register& setOPTKEYR(unsigned long value) volatile {
+          raw = (raw & ~(0xFFFFFFFF << 0)) | ((((value)) << 0) & (0xFFFFFFFF << 0));
+          return *(Register*)this;
         }
       };
-      
-      /**
-        Flash status register
-      */
-      class SR {
+    };
+    
+    /**
+      Flash status register
+    */
+    namespace SR {
+      class Register {
         volatile unsigned long raw;
         public:
         __attribute__((always_inline)) void operator= (unsigned long value) volatile {
@@ -125,69 +157,82 @@ namespace target {
         }
         __attribute__((always_inline)) operator unsigned long () volatile {
           return raw;
+        }
+        /**
+          Sets register to zero
+        */
+        __attribute__((always_inline)) Register& zero() volatile {
+          raw = 0;
+          return *(Register*)this;
         }
         /**
           Gets End of operation
-          @return value in range 0..1
+          @return boolean value
         */
-        __attribute__((always_inline)) unsigned long getEOP() volatile {
-          return (raw & (0x1 << 5)) >> 5;
+        __attribute__((always_inline)) bool getEOP() volatile {
+          return ((raw & (0x1 << 5)) >> 5);
         }
         /**
           Sets End of operation
-          @param value in range 0..1
+          @param value boolean value
         */
-        __attribute__((always_inline)) unsigned long setEOP(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 5)) | ((value << 5) & (0x1 << 5));
+        __attribute__((always_inline)) Register& setEOP(bool value) volatile {
+          raw = (raw & ~(0x1 << 5)) | ((((value)) << 5) & (0x1 << 5));
+          return *(Register*)this;
         }
         /**
           Gets Write protection error
-          @return value in range 0..1
+          @return boolean value
         */
-        __attribute__((always_inline)) unsigned long getWRPRT() volatile {
-          return (raw & (0x1 << 4)) >> 4;
+        __attribute__((always_inline)) bool getWRPRT() volatile {
+          return ((raw & (0x1 << 4)) >> 4);
         }
         /**
           Sets Write protection error
-          @param value in range 0..1
+          @param value boolean value
         */
-        __attribute__((always_inline)) unsigned long setWRPRT(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 4)) | ((value << 4) & (0x1 << 4));
+        __attribute__((always_inline)) Register& setWRPRT(bool value) volatile {
+          raw = (raw & ~(0x1 << 4)) | ((((value)) << 4) & (0x1 << 4));
+          return *(Register*)this;
         }
         /**
           Gets Programming error
-          @return value in range 0..1
+          @return boolean value
         */
-        __attribute__((always_inline)) unsigned long getPGERR() volatile {
-          return (raw & (0x1 << 2)) >> 2;
+        __attribute__((always_inline)) bool getPGERR() volatile {
+          return ((raw & (0x1 << 2)) >> 2);
         }
         /**
           Sets Programming error
-          @param value in range 0..1
+          @param value boolean value
         */
-        __attribute__((always_inline)) unsigned long setPGERR(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 2)) | ((value << 2) & (0x1 << 2));
+        __attribute__((always_inline)) Register& setPGERR(bool value) volatile {
+          raw = (raw & ~(0x1 << 2)) | ((((value)) << 2) & (0x1 << 2));
+          return *(Register*)this;
         }
         /**
           Gets Busy
-          @return value in range 0..1
+          @return boolean value
         */
-        __attribute__((always_inline)) unsigned long getBSY() volatile {
-          return (raw & (0x1 << 0)) >> 0;
+        __attribute__((always_inline)) bool getBSY() volatile {
+          return ((raw & (0x1 << 0)) >> 0);
         }
         /**
           Sets Busy
-          @param value in range 0..1
+          @param value boolean value
         */
-        __attribute__((always_inline)) unsigned long setBSY(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 0)) | ((value << 0) & (0x1 << 0));
+        __attribute__((always_inline)) Register& setBSY(bool value) volatile {
+          raw = (raw & ~(0x1 << 0)) | ((((value)) << 0) & (0x1 << 0));
+          return *(Register*)this;
         }
       };
-      
-      /**
-        Flash control register
-      */
-      class CR {
+    };
+    
+    /**
+      Flash control register
+    */
+    namespace CR {
+      class Register {
         volatile unsigned long raw;
         public:
         __attribute__((always_inline)) void operator= (unsigned long value) volatile {
@@ -195,167 +240,187 @@ namespace target {
         }
         __attribute__((always_inline)) operator unsigned long () volatile {
           return raw;
+        }
+        /**
+          Sets register to zero
+        */
+        __attribute__((always_inline)) Register& zero() volatile {
+          raw = 0;
+          return *(Register*)this;
         }
         /**
           Gets Force option byte loading
-          @return value in range 0..1
+          @return boolean value
         */
-        __attribute__((always_inline)) unsigned long getFORCE_OPTLOAD() volatile {
-          return (raw & (0x1 << 13)) >> 13;
+        __attribute__((always_inline)) bool getFORCE_OPTLOAD() volatile {
+          return ((raw & (0x1 << 13)) >> 13);
         }
         /**
           Sets Force option byte loading
-          @param value in range 0..1
+          @param value boolean value
         */
-        __attribute__((always_inline)) unsigned long setFORCE_OPTLOAD(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 13)) | ((value << 13) & (0x1 << 13));
+        __attribute__((always_inline)) Register& setFORCE_OPTLOAD(bool value) volatile {
+          raw = (raw & ~(0x1 << 13)) | ((((value)) << 13) & (0x1 << 13));
+          return *(Register*)this;
         }
         /**
           Gets End of operation interrupt enable
-          @return value in range 0..1
+          @return boolean value
         */
-        __attribute__((always_inline)) unsigned long getEOPIE() volatile {
-          return (raw & (0x1 << 12)) >> 12;
+        __attribute__((always_inline)) bool getEOPIE() volatile {
+          return ((raw & (0x1 << 12)) >> 12);
         }
         /**
           Sets End of operation interrupt enable
-          @param value in range 0..1
+          @param value boolean value
         */
-        __attribute__((always_inline)) unsigned long setEOPIE(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 12)) | ((value << 12) & (0x1 << 12));
+        __attribute__((always_inline)) Register& setEOPIE(bool value) volatile {
+          raw = (raw & ~(0x1 << 12)) | ((((value)) << 12) & (0x1 << 12));
+          return *(Register*)this;
         }
         /**
           Gets Error interrupt enable
-          @return value in range 0..1
+          @return boolean value
         */
-        __attribute__((always_inline)) unsigned long getERRIE() volatile {
-          return (raw & (0x1 << 10)) >> 10;
+        __attribute__((always_inline)) bool getERRIE() volatile {
+          return ((raw & (0x1 << 10)) >> 10);
         }
         /**
           Sets Error interrupt enable
-          @param value in range 0..1
+          @param value boolean value
         */
-        __attribute__((always_inline)) unsigned long setERRIE(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 10)) | ((value << 10) & (0x1 << 10));
+        __attribute__((always_inline)) Register& setERRIE(bool value) volatile {
+          raw = (raw & ~(0x1 << 10)) | ((((value)) << 10) & (0x1 << 10));
+          return *(Register*)this;
         }
         /**
           Gets Option bytes write enable
-          @return value in range 0..1
+          @return boolean value
         */
-        __attribute__((always_inline)) unsigned long getOPTWRE() volatile {
-          return (raw & (0x1 << 9)) >> 9;
+        __attribute__((always_inline)) bool getOPTWRE() volatile {
+          return ((raw & (0x1 << 9)) >> 9);
         }
         /**
           Sets Option bytes write enable
-          @param value in range 0..1
+          @param value boolean value
         */
-        __attribute__((always_inline)) unsigned long setOPTWRE(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 9)) | ((value << 9) & (0x1 << 9));
+        __attribute__((always_inline)) Register& setOPTWRE(bool value) volatile {
+          raw = (raw & ~(0x1 << 9)) | ((((value)) << 9) & (0x1 << 9));
+          return *(Register*)this;
         }
         /**
           Gets Lock
-          @return value in range 0..1
+          @return boolean value
         */
-        __attribute__((always_inline)) unsigned long getLOCK() volatile {
-          return (raw & (0x1 << 7)) >> 7;
+        __attribute__((always_inline)) bool getLOCK() volatile {
+          return ((raw & (0x1 << 7)) >> 7);
         }
         /**
           Sets Lock
-          @param value in range 0..1
+          @param value boolean value
         */
-        __attribute__((always_inline)) unsigned long setLOCK(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 7)) | ((value << 7) & (0x1 << 7));
+        __attribute__((always_inline)) Register& setLOCK(bool value) volatile {
+          raw = (raw & ~(0x1 << 7)) | ((((value)) << 7) & (0x1 << 7));
+          return *(Register*)this;
         }
         /**
           Gets Start
-          @return value in range 0..1
+          @return boolean value
         */
-        __attribute__((always_inline)) unsigned long getSTRT() volatile {
-          return (raw & (0x1 << 6)) >> 6;
+        __attribute__((always_inline)) bool getSTRT() volatile {
+          return ((raw & (0x1 << 6)) >> 6);
         }
         /**
           Sets Start
-          @param value in range 0..1
+          @param value boolean value
         */
-        __attribute__((always_inline)) unsigned long setSTRT(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 6)) | ((value << 6) & (0x1 << 6));
+        __attribute__((always_inline)) Register& setSTRT(bool value) volatile {
+          raw = (raw & ~(0x1 << 6)) | ((((value)) << 6) & (0x1 << 6));
+          return *(Register*)this;
         }
         /**
           Gets Option byte erase
-          @return value in range 0..1
+          @return boolean value
         */
-        __attribute__((always_inline)) unsigned long getOPTER() volatile {
-          return (raw & (0x1 << 5)) >> 5;
+        __attribute__((always_inline)) bool getOPTER() volatile {
+          return ((raw & (0x1 << 5)) >> 5);
         }
         /**
           Sets Option byte erase
-          @param value in range 0..1
+          @param value boolean value
         */
-        __attribute__((always_inline)) unsigned long setOPTER(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 5)) | ((value << 5) & (0x1 << 5));
+        __attribute__((always_inline)) Register& setOPTER(bool value) volatile {
+          raw = (raw & ~(0x1 << 5)) | ((((value)) << 5) & (0x1 << 5));
+          return *(Register*)this;
         }
         /**
           Gets Option byte programming
-          @return value in range 0..1
+          @return boolean value
         */
-        __attribute__((always_inline)) unsigned long getOPTPG() volatile {
-          return (raw & (0x1 << 4)) >> 4;
+        __attribute__((always_inline)) bool getOPTPG() volatile {
+          return ((raw & (0x1 << 4)) >> 4);
         }
         /**
           Sets Option byte programming
-          @param value in range 0..1
+          @param value boolean value
         */
-        __attribute__((always_inline)) unsigned long setOPTPG(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 4)) | ((value << 4) & (0x1 << 4));
+        __attribute__((always_inline)) Register& setOPTPG(bool value) volatile {
+          raw = (raw & ~(0x1 << 4)) | ((((value)) << 4) & (0x1 << 4));
+          return *(Register*)this;
         }
         /**
           Gets Mass erase
-          @return value in range 0..1
+          @return boolean value
         */
-        __attribute__((always_inline)) unsigned long getMER() volatile {
-          return (raw & (0x1 << 2)) >> 2;
+        __attribute__((always_inline)) bool getMER() volatile {
+          return ((raw & (0x1 << 2)) >> 2);
         }
         /**
           Sets Mass erase
-          @param value in range 0..1
+          @param value boolean value
         */
-        __attribute__((always_inline)) unsigned long setMER(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 2)) | ((value << 2) & (0x1 << 2));
+        __attribute__((always_inline)) Register& setMER(bool value) volatile {
+          raw = (raw & ~(0x1 << 2)) | ((((value)) << 2) & (0x1 << 2));
+          return *(Register*)this;
         }
         /**
           Gets Page erase
-          @return value in range 0..1
+          @return boolean value
         */
-        __attribute__((always_inline)) unsigned long getPER() volatile {
-          return (raw & (0x1 << 1)) >> 1;
+        __attribute__((always_inline)) bool getPER() volatile {
+          return ((raw & (0x1 << 1)) >> 1);
         }
         /**
           Sets Page erase
-          @param value in range 0..1
+          @param value boolean value
         */
-        __attribute__((always_inline)) unsigned long setPER(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 1)) | ((value << 1) & (0x1 << 1));
+        __attribute__((always_inline)) Register& setPER(bool value) volatile {
+          raw = (raw & ~(0x1 << 1)) | ((((value)) << 1) & (0x1 << 1));
+          return *(Register*)this;
         }
         /**
           Gets Programming
-          @return value in range 0..1
+          @return boolean value
         */
-        __attribute__((always_inline)) unsigned long getPG() volatile {
-          return (raw & (0x1 << 0)) >> 0;
+        __attribute__((always_inline)) bool getPG() volatile {
+          return ((raw & (0x1 << 0)) >> 0);
         }
         /**
           Sets Programming
-          @param value in range 0..1
+          @param value boolean value
         */
-        __attribute__((always_inline)) unsigned long setPG(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 0)) | ((value << 0) & (0x1 << 0));
+        __attribute__((always_inline)) Register& setPG(bool value) volatile {
+          raw = (raw & ~(0x1 << 0)) | ((((value)) << 0) & (0x1 << 0));
+          return *(Register*)this;
         }
       };
-      
-      /**
-        Flash address register
-      */
-      class AR {
+    };
+    
+    /**
+      Flash address register
+    */
+    namespace AR {
+      class Register {
         volatile unsigned long raw;
         public:
         __attribute__((always_inline)) void operator= (unsigned long value) volatile {
@@ -363,27 +428,37 @@ namespace target {
         }
         __attribute__((always_inline)) operator unsigned long () volatile {
           return raw;
+        }
+        /**
+          Sets register to zero
+        */
+        __attribute__((always_inline)) Register& zero() volatile {
+          raw = 0;
+          return *(Register*)this;
         }
         /**
           Gets Flash address
           @return value in range 0..4294967295
         */
         __attribute__((always_inline)) unsigned long getFAR() volatile {
-          return (raw & (0xFFFFFFFF << 0)) >> 0;
+          return ((raw & (0xFFFFFFFF << 0)) >> 0);
         }
         /**
           Sets Flash address
-          @param value in range 0..4294967295
+          @param value value in range 0..4294967295
         */
-        __attribute__((always_inline)) unsigned long setFAR(unsigned long value) volatile {
-          raw = (raw & ~(0xFFFFFFFF << 0)) | ((value << 0) & (0xFFFFFFFF << 0));
+        __attribute__((always_inline)) Register& setFAR(unsigned long value) volatile {
+          raw = (raw & ~(0xFFFFFFFF << 0)) | ((((value)) << 0) & (0xFFFFFFFF << 0));
+          return *(Register*)this;
         }
       };
-      
-      /**
-        Option byte register
-      */
-      class OBR {
+    };
+    
+    /**
+      Option byte register
+    */
+    namespace OBR {
+      class Register {
         volatile unsigned long raw;
         public:
         __attribute__((always_inline)) void operator= (unsigned long value) volatile {
@@ -391,6 +466,13 @@ namespace target {
         }
         __attribute__((always_inline)) operator unsigned long () volatile {
           return raw;
+        }
+        /**
+          Sets register to zero
+        */
+        __attribute__((always_inline)) Register& zero() volatile {
+          raw = 0;
+          return *(Register*)this;
         }
         /**
           Gets Data0
@@ -398,148 +480,145 @@ namespace target {
           @return value in range 0..255
         */
         __attribute__((always_inline)) unsigned long getData(int index) volatile {
-          return (raw & (0xFF << (16 + 8 * (index - 0)))) >> (16 + 8 * (index - 0));
+          return ((raw & (0xFF << (16 + 8 * (index - 0)))) >> (16 + 8 * (index - 0)));
         }
         /**
           Sets Data0
           @param index in range 0..1
-          @param value in range 0..255
+          @param value value in range 0..255
         */
-        __attribute__((always_inline)) unsigned long setData(int index, unsigned long value) volatile {
-          raw = (raw & ~(0xFF << (16 + 8 * (index - 0)))) | ((value << (16 + 8 * (index - 0))) & (0xFF << (16 + 8 * (index - 0))));
-        }
-        /**
-          Gets Data0
-          @return value in range 0..65535
-        */
-        __attribute__((always_inline)) unsigned long getData() volatile {
-          return (raw & (0xFFFF << 16)) >> 16;
-        }
-        /**
-          Sets Data0
-          @param value in range 0..65535
-        */
-        __attribute__((always_inline)) unsigned long setData(unsigned long value) volatile {
-          raw = (raw & ~(0xFFFF << 16)) | ((value << 16) & (0xFFFF << 16));
+        __attribute__((always_inline)) Register& setData(int index, unsigned long value) volatile {
+          raw = (raw & ~(0xFF << (16 + 8 * (index - 0)))) | ((((value)) << (16 + 8 * (index - 0))) & (0xFF << (16 + 8 * (index - 0))));
+          return *(Register*)this;
         }
         /**
           Gets Option byte error
-          @return value in range 0..1
+          @return boolean value
         */
-        __attribute__((always_inline)) unsigned long getOPTERR() volatile {
-          return (raw & (0x1 << 0)) >> 0;
+        __attribute__((always_inline)) bool getOPTERR() volatile {
+          return ((raw & (0x1 << 0)) >> 0);
         }
         /**
           Sets Option byte error
-          @param value in range 0..1
+          @param value boolean value
         */
-        __attribute__((always_inline)) unsigned long setOPTERR(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 0)) | ((value << 0) & (0x1 << 0));
+        __attribute__((always_inline)) Register& setOPTERR(bool value) volatile {
+          raw = (raw & ~(0x1 << 0)) | ((((value)) << 0) & (0x1 << 0));
+          return *(Register*)this;
         }
         /**
           Gets Read protection level status
           @return value in range 0..3
         */
         __attribute__((always_inline)) unsigned long getRDPRT() volatile {
-          return (raw & (0x3 << 1)) >> 1;
+          return ((raw & (0x3 << 1)) >> 1);
         }
         /**
           Sets Read protection level status
-          @param value in range 0..3
+          @param value value in range 0..3
         */
-        __attribute__((always_inline)) unsigned long setRDPRT(unsigned long value) volatile {
-          raw = (raw & ~(0x3 << 1)) | ((value << 1) & (0x3 << 1));
+        __attribute__((always_inline)) Register& setRDPRT(unsigned long value) volatile {
+          raw = (raw & ~(0x3 << 1)) | ((((value)) << 1) & (0x3 << 1));
+          return *(Register*)this;
         }
         /**
           Gets WDG_SW
-          @return value in range 0..1
+          @return boolean value
         */
-        __attribute__((always_inline)) unsigned long getWDG_SW() volatile {
-          return (raw & (0x1 << 8)) >> 8;
+        __attribute__((always_inline)) bool getWDG_SW() volatile {
+          return ((raw & (0x1 << 8)) >> 8);
         }
         /**
           Sets WDG_SW
-          @param value in range 0..1
+          @param value boolean value
         */
-        __attribute__((always_inline)) unsigned long setWDG_SW(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 8)) | ((value << 8) & (0x1 << 8));
+        __attribute__((always_inline)) Register& setWDG_SW(bool value) volatile {
+          raw = (raw & ~(0x1 << 8)) | ((((value)) << 8) & (0x1 << 8));
+          return *(Register*)this;
         }
         /**
           Gets nRST_STOP
-          @return value in range 0..1
+          @return boolean value
         */
-        __attribute__((always_inline)) unsigned long getnRST_STOP() volatile {
-          return (raw & (0x1 << 9)) >> 9;
+        __attribute__((always_inline)) bool getnRST_STOP() volatile {
+          return ((raw & (0x1 << 9)) >> 9);
         }
         /**
           Sets nRST_STOP
-          @param value in range 0..1
+          @param value boolean value
         */
-        __attribute__((always_inline)) unsigned long setnRST_STOP(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 9)) | ((value << 9) & (0x1 << 9));
+        __attribute__((always_inline)) Register& setnRST_STOP(bool value) volatile {
+          raw = (raw & ~(0x1 << 9)) | ((((value)) << 9) & (0x1 << 9));
+          return *(Register*)this;
         }
         /**
           Gets nRST_STDBY
-          @return value in range 0..1
+          @return boolean value
         */
-        __attribute__((always_inline)) unsigned long getnRST_STDBY() volatile {
-          return (raw & (0x1 << 10)) >> 10;
+        __attribute__((always_inline)) bool getnRST_STDBY() volatile {
+          return ((raw & (0x1 << 10)) >> 10);
         }
         /**
           Sets nRST_STDBY
-          @param value in range 0..1
+          @param value boolean value
         */
-        __attribute__((always_inline)) unsigned long setnRST_STDBY(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 10)) | ((value << 10) & (0x1 << 10));
+        __attribute__((always_inline)) Register& setnRST_STDBY(bool value) volatile {
+          raw = (raw & ~(0x1 << 10)) | ((((value)) << 10) & (0x1 << 10));
+          return *(Register*)this;
         }
         /**
           Gets BOOT1
-          @return value in range 0..1
+          @return boolean value
         */
-        __attribute__((always_inline)) unsigned long getnBOOT1() volatile {
-          return (raw & (0x1 << 12)) >> 12;
+        __attribute__((always_inline)) bool getnBOOT1() volatile {
+          return ((raw & (0x1 << 12)) >> 12);
         }
         /**
           Sets BOOT1
-          @param value in range 0..1
+          @param value boolean value
         */
-        __attribute__((always_inline)) unsigned long setnBOOT1(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 12)) | ((value << 12) & (0x1 << 12));
+        __attribute__((always_inline)) Register& setnBOOT1(bool value) volatile {
+          raw = (raw & ~(0x1 << 12)) | ((((value)) << 12) & (0x1 << 12));
+          return *(Register*)this;
         }
         /**
           Gets VDDA_MONITOR
-          @return value in range 0..1
+          @return boolean value
         */
-        __attribute__((always_inline)) unsigned long getVDDA_MONITOR() volatile {
-          return (raw & (0x1 << 13)) >> 13;
+        __attribute__((always_inline)) bool getVDDA_MONITOR() volatile {
+          return ((raw & (0x1 << 13)) >> 13);
         }
         /**
           Sets VDDA_MONITOR
-          @param value in range 0..1
+          @param value boolean value
         */
-        __attribute__((always_inline)) unsigned long setVDDA_MONITOR(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 13)) | ((value << 13) & (0x1 << 13));
+        __attribute__((always_inline)) Register& setVDDA_MONITOR(bool value) volatile {
+          raw = (raw & ~(0x1 << 13)) | ((((value)) << 13) & (0x1 << 13));
+          return *(Register*)this;
         }
         /**
           Gets RAM_PARITY_CHECK
-          @return value in range 0..1
+          @return boolean value
         */
-        __attribute__((always_inline)) unsigned long getRAM_PARITY_CHECK() volatile {
-          return (raw & (0x1 << 14)) >> 14;
+        __attribute__((always_inline)) bool getRAM_PARITY_CHECK() volatile {
+          return ((raw & (0x1 << 14)) >> 14);
         }
         /**
           Sets RAM_PARITY_CHECK
-          @param value in range 0..1
+          @param value boolean value
         */
-        __attribute__((always_inline)) unsigned long setRAM_PARITY_CHECK(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 14)) | ((value << 14) & (0x1 << 14));
+        __attribute__((always_inline)) Register& setRAM_PARITY_CHECK(bool value) volatile {
+          raw = (raw & ~(0x1 << 14)) | ((((value)) << 14) & (0x1 << 14));
+          return *(Register*)this;
         }
       };
-      
-      /**
-        Write protection register
-      */
-      class WRPR {
+    };
+    
+    /**
+      Write protection register
+    */
+    namespace WRPR {
+      class Register {
         volatile unsigned long raw;
         public:
         __attribute__((always_inline)) void operator= (unsigned long value) volatile {
@@ -549,18 +628,26 @@ namespace target {
           return raw;
         }
         /**
+          Sets register to zero
+        */
+        __attribute__((always_inline)) Register& zero() volatile {
+          raw = 0;
+          return *(Register*)this;
+        }
+        /**
           Gets Write protect
           @return value in range 0..4294967295
         */
         __attribute__((always_inline)) unsigned long getWRP() volatile {
-          return (raw & (0xFFFFFFFF << 0)) >> 0;
+          return ((raw & (0xFFFFFFFF << 0)) >> 0);
         }
         /**
           Sets Write protect
-          @param value in range 0..4294967295
+          @param value value in range 0..4294967295
         */
-        __attribute__((always_inline)) unsigned long setWRP(unsigned long value) volatile {
-          raw = (raw & ~(0xFFFFFFFF << 0)) | ((value << 0) & (0xFFFFFFFF << 0));
+        __attribute__((always_inline)) Register& setWRP(unsigned long value) volatile {
+          raw = (raw & ~(0xFFFFFFFF << 0)) | ((((value)) << 0) & (0xFFFFFFFF << 0));
+          return *(Register*)this;
         }
       };
     };
@@ -571,60 +658,60 @@ namespace target {
           /**
             Flash access control register
           */
-          volatile reg::ACR ACR;
+          ACR::Register ACR;
         };
         struct {
-          volatile char _space_KEYR[0x4];
+          char _space_KEYR[0x4];
           /**
             Flash key register
           */
-          volatile reg::KEYR KEYR;
+          KEYR::Register KEYR;
         };
         struct {
-          volatile char _space_OPTKEYR[0x8];
+          char _space_OPTKEYR[0x8];
           /**
             Flash option key register
           */
-          volatile reg::OPTKEYR OPTKEYR;
+          OPTKEYR::Register OPTKEYR;
         };
         struct {
-          volatile char _space_SR[0xc];
+          char _space_SR[0xc];
           /**
             Flash status register
           */
-          volatile reg::SR SR;
+          SR::Register SR;
         };
         struct {
-          volatile char _space_CR[0x10];
+          char _space_CR[0x10];
           /**
             Flash control register
           */
-          volatile reg::CR CR;
+          CR::Register CR;
         };
         struct {
-          volatile char _space_AR[0x14];
+          char _space_AR[0x14];
           /**
             Flash address register
           */
-          volatile reg::AR AR;
+          AR::Register AR;
         };
         struct {
-          volatile char _space_OBR[0x1c];
+          char _space_OBR[0x1c];
           /**
             Option byte register
           */
-          volatile reg::OBR OBR;
+          OBR::Register OBR;
         };
         struct {
-          volatile char _space_WRPR[0x20];
+          char _space_WRPR[0x20];
           /**
             Write protection register
           */
-          volatile reg::WRPR WRPR;
+          WRPR::Register WRPR;
         };
       };
     };
   }
   
-  extern flash::Peripheral FLASH;
+  extern volatile flash::Peripheral FLASH;
 }

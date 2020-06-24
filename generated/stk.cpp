@@ -1,11 +1,11 @@
 namespace target {
   namespace stk {
-    namespace reg {
-      
-      /**
-        SysTick control and status register
-      */
-      class CSR {
+    
+    /**
+      SysTick control and status register
+    */
+    namespace CSR {
+      class Register {
         volatile unsigned long raw;
         public:
         __attribute__((always_inline)) void operator= (unsigned long value) volatile {
@@ -13,69 +13,82 @@ namespace target {
         }
         __attribute__((always_inline)) operator unsigned long () volatile {
           return raw;
+        }
+        /**
+          Sets register to zero
+        */
+        __attribute__((always_inline)) Register& zero() volatile {
+          raw = 0;
+          return *(Register*)this;
         }
         /**
           Gets Counter enable
-          @return value in range 0..1
+          @return boolean value
         */
-        __attribute__((always_inline)) unsigned long getENABLE() volatile {
-          return (raw & (0x1 << 0)) >> 0;
+        __attribute__((always_inline)) bool getENABLE() volatile {
+          return ((raw & (0x1 << 0)) >> 0);
         }
         /**
           Sets Counter enable
-          @param value in range 0..1
+          @param value boolean value
         */
-        __attribute__((always_inline)) unsigned long setENABLE(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 0)) | ((value << 0) & (0x1 << 0));
+        __attribute__((always_inline)) Register& setENABLE(bool value) volatile {
+          raw = (raw & ~(0x1 << 0)) | ((((value)) << 0) & (0x1 << 0));
+          return *(Register*)this;
         }
         /**
           Gets SysTick exception request enable
-          @return value in range 0..1
+          @return boolean value
         */
-        __attribute__((always_inline)) unsigned long getTICKINT() volatile {
-          return (raw & (0x1 << 1)) >> 1;
+        __attribute__((always_inline)) bool getTICKINT() volatile {
+          return ((raw & (0x1 << 1)) >> 1);
         }
         /**
           Sets SysTick exception request enable
-          @param value in range 0..1
+          @param value boolean value
         */
-        __attribute__((always_inline)) unsigned long setTICKINT(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 1)) | ((value << 1) & (0x1 << 1));
+        __attribute__((always_inline)) Register& setTICKINT(bool value) volatile {
+          raw = (raw & ~(0x1 << 1)) | ((((value)) << 1) & (0x1 << 1));
+          return *(Register*)this;
         }
         /**
           Gets Clock source selection
-          @return value in range 0..1
+          @return boolean value
         */
-        __attribute__((always_inline)) unsigned long getCLKSOURCE() volatile {
-          return (raw & (0x1 << 2)) >> 2;
+        __attribute__((always_inline)) bool getCLKSOURCE() volatile {
+          return ((raw & (0x1 << 2)) >> 2);
         }
         /**
           Sets Clock source selection
-          @param value in range 0..1
+          @param value boolean value
         */
-        __attribute__((always_inline)) unsigned long setCLKSOURCE(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 2)) | ((value << 2) & (0x1 << 2));
+        __attribute__((always_inline)) Register& setCLKSOURCE(bool value) volatile {
+          raw = (raw & ~(0x1 << 2)) | ((((value)) << 2) & (0x1 << 2));
+          return *(Register*)this;
         }
         /**
           Gets COUNTFLAG
-          @return value in range 0..1
+          @return boolean value
         */
-        __attribute__((always_inline)) unsigned long getCOUNTFLAG() volatile {
-          return (raw & (0x1 << 16)) >> 16;
+        __attribute__((always_inline)) bool getCOUNTFLAG() volatile {
+          return ((raw & (0x1 << 16)) >> 16);
         }
         /**
           Sets COUNTFLAG
-          @param value in range 0..1
+          @param value boolean value
         */
-        __attribute__((always_inline)) unsigned long setCOUNTFLAG(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 16)) | ((value << 16) & (0x1 << 16));
+        __attribute__((always_inline)) Register& setCOUNTFLAG(bool value) volatile {
+          raw = (raw & ~(0x1 << 16)) | ((((value)) << 16) & (0x1 << 16));
+          return *(Register*)this;
         }
       };
-      
-      /**
-        SysTick reload value register
-      */
-      class RVR {
+    };
+    
+    /**
+      SysTick reload value register
+    */
+    namespace RVR {
+      class Register {
         volatile unsigned long raw;
         public:
         __attribute__((always_inline)) void operator= (unsigned long value) volatile {
@@ -83,27 +96,37 @@ namespace target {
         }
         __attribute__((always_inline)) operator unsigned long () volatile {
           return raw;
+        }
+        /**
+          Sets register to zero
+        */
+        __attribute__((always_inline)) Register& zero() volatile {
+          raw = 0;
+          return *(Register*)this;
         }
         /**
           Gets RELOAD value
           @return value in range 0..16777215
         */
         __attribute__((always_inline)) unsigned long getRELOAD() volatile {
-          return (raw & (0xFFFFFF << 0)) >> 0;
+          return ((raw & (0xFFFFFF << 0)) >> 0);
         }
         /**
           Sets RELOAD value
-          @param value in range 0..16777215
+          @param value value in range 0..16777215
         */
-        __attribute__((always_inline)) unsigned long setRELOAD(unsigned long value) volatile {
-          raw = (raw & ~(0xFFFFFF << 0)) | ((value << 0) & (0xFFFFFF << 0));
+        __attribute__((always_inline)) Register& setRELOAD(unsigned long value) volatile {
+          raw = (raw & ~(0xFFFFFF << 0)) | ((((value)) << 0) & (0xFFFFFF << 0));
+          return *(Register*)this;
         }
       };
-      
-      /**
-        SysTick current value register
-      */
-      class CVR {
+    };
+    
+    /**
+      SysTick current value register
+    */
+    namespace CVR {
+      class Register {
         volatile unsigned long raw;
         public:
         __attribute__((always_inline)) void operator= (unsigned long value) volatile {
@@ -111,27 +134,37 @@ namespace target {
         }
         __attribute__((always_inline)) operator unsigned long () volatile {
           return raw;
+        }
+        /**
+          Sets register to zero
+        */
+        __attribute__((always_inline)) Register& zero() volatile {
+          raw = 0;
+          return *(Register*)this;
         }
         /**
           Gets Current counter value
           @return value in range 0..16777215
         */
         __attribute__((always_inline)) unsigned long getCURRENT() volatile {
-          return (raw & (0xFFFFFF << 0)) >> 0;
+          return ((raw & (0xFFFFFF << 0)) >> 0);
         }
         /**
           Sets Current counter value
-          @param value in range 0..16777215
+          @param value value in range 0..16777215
         */
-        __attribute__((always_inline)) unsigned long setCURRENT(unsigned long value) volatile {
-          raw = (raw & ~(0xFFFFFF << 0)) | ((value << 0) & (0xFFFFFF << 0));
+        __attribute__((always_inline)) Register& setCURRENT(unsigned long value) volatile {
+          raw = (raw & ~(0xFFFFFF << 0)) | ((((value)) << 0) & (0xFFFFFF << 0));
+          return *(Register*)this;
         }
       };
-      
-      /**
-        SysTick calibration value register
-      */
-      class CALIB {
+    };
+    
+    /**
+      SysTick calibration value register
+    */
+    namespace CALIB {
+      class Register {
         volatile unsigned long raw;
         public:
         __attribute__((always_inline)) void operator= (unsigned long value) volatile {
@@ -141,46 +174,56 @@ namespace target {
           return raw;
         }
         /**
+          Sets register to zero
+        */
+        __attribute__((always_inline)) Register& zero() volatile {
+          raw = 0;
+          return *(Register*)this;
+        }
+        /**
           Gets Calibration value
           @return value in range 0..16777215
         */
         __attribute__((always_inline)) unsigned long getTENMS() volatile {
-          return (raw & (0xFFFFFF << 0)) >> 0;
+          return ((raw & (0xFFFFFF << 0)) >> 0);
         }
         /**
           Sets Calibration value
-          @param value in range 0..16777215
+          @param value value in range 0..16777215
         */
-        __attribute__((always_inline)) unsigned long setTENMS(unsigned long value) volatile {
-          raw = (raw & ~(0xFFFFFF << 0)) | ((value << 0) & (0xFFFFFF << 0));
+        __attribute__((always_inline)) Register& setTENMS(unsigned long value) volatile {
+          raw = (raw & ~(0xFFFFFF << 0)) | ((((value)) << 0) & (0xFFFFFF << 0));
+          return *(Register*)this;
         }
         /**
           Gets SKEW flag: Indicates whether the TENMS value is exact
-          @return value in range 0..1
+          @return boolean value
         */
-        __attribute__((always_inline)) unsigned long getSKEW() volatile {
-          return (raw & (0x1 << 30)) >> 30;
+        __attribute__((always_inline)) bool getSKEW() volatile {
+          return ((raw & (0x1 << 30)) >> 30);
         }
         /**
           Sets SKEW flag: Indicates whether the TENMS value is exact
-          @param value in range 0..1
+          @param value boolean value
         */
-        __attribute__((always_inline)) unsigned long setSKEW(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 30)) | ((value << 30) & (0x1 << 30));
+        __attribute__((always_inline)) Register& setSKEW(bool value) volatile {
+          raw = (raw & ~(0x1 << 30)) | ((((value)) << 30) & (0x1 << 30));
+          return *(Register*)this;
         }
         /**
           Gets NOREF flag. Reads as zero
-          @return value in range 0..1
+          @return boolean value
         */
-        __attribute__((always_inline)) unsigned long getNOREF() volatile {
-          return (raw & (0x1 << 31)) >> 31;
+        __attribute__((always_inline)) bool getNOREF() volatile {
+          return ((raw & (0x1 << 31)) >> 31);
         }
         /**
           Sets NOREF flag. Reads as zero
-          @param value in range 0..1
+          @param value boolean value
         */
-        __attribute__((always_inline)) unsigned long setNOREF(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 31)) | ((value << 31) & (0x1 << 31));
+        __attribute__((always_inline)) Register& setNOREF(bool value) volatile {
+          raw = (raw & ~(0x1 << 31)) | ((((value)) << 31) & (0x1 << 31));
+          return *(Register*)this;
         }
       };
     };
@@ -191,32 +234,32 @@ namespace target {
           /**
             SysTick control and status register
           */
-          volatile reg::CSR CSR;
+          CSR::Register CSR;
         };
         struct {
-          volatile char _space_RVR[0x4];
+          char _space_RVR[0x4];
           /**
             SysTick reload value register
           */
-          volatile reg::RVR RVR;
+          RVR::Register RVR;
         };
         struct {
-          volatile char _space_CVR[0x8];
+          char _space_CVR[0x8];
           /**
             SysTick current value register
           */
-          volatile reg::CVR CVR;
+          CVR::Register CVR;
         };
         struct {
-          volatile char _space_CALIB[0xc];
+          char _space_CALIB[0xc];
           /**
             SysTick calibration value register
           */
-          volatile reg::CALIB CALIB;
+          CALIB::Register CALIB;
         };
       };
     };
   }
   
-  extern stk::Peripheral STK;
+  extern volatile stk::Peripheral STK;
 }
