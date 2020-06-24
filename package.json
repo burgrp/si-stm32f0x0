@@ -1,6 +1,6 @@
 {
   "name": "@device.farm/si-stm32f0x0",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "silicon": {
     "target": {
       "name": "STM32F0x0",
